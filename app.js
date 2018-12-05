@@ -1,6 +1,8 @@
 //app.js
 App({
   onLaunch: function () {
+    const host = 'http://localhost:3000/';
+    console.log('processing to login');
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -10,6 +12,17 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        console.log(res)
+        wx.request({
+          // pass code to rails login#login, a new user be created by rails
+          url: host + 'api/v1/login', method: 'post', data: {
+            code: res.code
+          },
+          success: res => {
+            console.log(res.data.userId)
+            this.globalData.userId = res.data.userId
+          }
+        })
       }
     })
     // 获取用户信息

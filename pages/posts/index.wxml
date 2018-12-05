@@ -1,0 +1,9 @@
+<!--pages/posts/index.wxml-->
+<text>All Posts order by desc</text>
+<block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
+  <view class="post">
+      <view class="name">{{post.name}}</view>
+  <!-- <image bindtap='viewList' class="avatar" id="{{post.user_id}}" data-avatar_url="{{post.avatar_url}}" src="{{post.avatar_url}}"></image> -->
+      <view class="description">{{post.description}}</view>
+  </view>
+</block>

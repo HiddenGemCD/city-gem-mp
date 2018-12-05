@@ -1,0 +1,8 @@
+/* pages/posts/index.wxss */
+.post {
+  border: 1px solid black;
+}
+.name {
+  font-size: 18px;
+  font-weight: bold;
+}
