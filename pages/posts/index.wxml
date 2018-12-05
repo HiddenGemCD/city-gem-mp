@@ -1,5 +1,8 @@
 <!--pages/posts/index.wxml-->
-<text>All Posts order by desc</text>
+
+<button class="btn" bindtap="newPost">Create</button>
+<view>--------------------</view>
+<view>All Posts order by desc</view>
 <block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
   <view class="post">
       <view class="name">{{post.name}}</view>

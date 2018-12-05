@@ -8,3 +8,9 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+.btn {
+  border: 1px solid black;
+  padding: 5px 15px;
+  display: inline-block
+}

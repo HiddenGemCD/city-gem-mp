@@ -33,9 +33,8 @@ Page({
   //     url: '/pages/list/mylist'
   //   })
   // },
-  newCard: function () {
-    // console.log('create new post...');
-    wx.switchTab({
+  newPost: function () {
+    wx.navigateTo({
       url: '/pages/posts/new'
     })
   }
