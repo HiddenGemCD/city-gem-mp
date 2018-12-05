@@ -9,7 +9,7 @@ Page({
     let page = this
     // Fetch Items from API
     myRequest.get({
-      path: "posts/posts_by_recent",
+      path: "posts",
       success(res) {
         page.setData({ posts: res.data.posts })
         console.log(res.data.posts)

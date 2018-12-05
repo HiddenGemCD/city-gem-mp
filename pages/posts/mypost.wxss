@@ -1,0 +1,12 @@
+/* pages/posts/mypost.wxss */
+.post {
+  border: 1px solid black;
+}
+.name {
+  font-size: 18px;
+  font-weight: bold;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+}

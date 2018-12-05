@@ -4,17 +4,17 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+
+  goNext: function () {
+    wx.switchTab({
+      url: '/pages/posts/index'
     })
   },
+
   onLoad: function (options) {
     const host = 'http://localhost:3000/';
     wx.getSetting({
@@ -24,8 +24,7 @@ Page({
           wx.getUserInfo({
             success: function (res) {
               wx.request({
-                // pass code to rails login#login, a new user be created by rails
-                url: host + 'api/v1/update_user_info', method: 'post', data: {
+                url: host + 'api/v1/update_user_info', method: 'post', data:                 {
                   id: app.globalData.userId.id,
                   name: res.userInfo.nickName,
                   city: res.userInfo.city,
@@ -42,6 +41,7 @@ Page({
       }
     })
   },
+
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -49,10 +49,5 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  },
-  goNext: function () {
-    wx.navigateTo({
-      url: '/pages/posts/index'
-    })
-  },
+  }
 })

@@ -8,6 +8,6 @@
       <textarea placeholder="Description" name="description" auto-height />
      </view>
     </view>
-    <button class="submit-button" form-type="submit" >Submit</button>
+    <button class="btn submit-button" form-type="submit" >Submit</button>
 </form>
   

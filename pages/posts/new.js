@@ -28,7 +28,7 @@ Page({
 
     setTimeout(function () {
       wx.reLaunch({
-        url: '/pages/posts/index'
+        url: '/pages/posts/mypost'
       })
     }, 1000)
   }
