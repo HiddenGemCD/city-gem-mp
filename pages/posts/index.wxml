@@ -5,5 +5,9 @@
       <view class="name">{{post.name}}</view>
   <!-- <image bindtap='viewList' class="avatar" id="{{post.user_id}}" data-avatar_url="{{post.avatar_url}}" src="{{post.avatar_url}}"></image> -->
       <view class="description">{{post.description}}</view>
+      <view class="count">{{post.votes}}</view>
+      <button id="{{postsIndex}}" bindtap = "{{post.upvoted_by_current_user ? 'unvote' : 'vote'}}" class="{{post.upvoted_by_current_user ? 'voted':''}}">{{post.upvoted_by_current_user ? 'unvote':'vote'}}</button>
   </view>
 </block>
+
+
