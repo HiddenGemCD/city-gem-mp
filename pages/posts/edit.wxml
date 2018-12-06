@@ -1,0 +1,14 @@
+<!--pages/posts/edit.wxml-->
+<form bindsubmit="bindSubmit">
+    <view class="user-input">
+     <view class="text-area-wrap">
+      <textarea placeholder="Name" value="{{name}}" name="name" auto-height />
+     </view>
+    </view>
+    <view class="user-input">
+     <view class="text-area-wrap">
+      <textarea placeholder="Description" value="{{description}}" name="description" auto-height />
+     </view>
+    </view>
+    <button class="submit-button" form-type="submit" >Submit</button>
+</form>

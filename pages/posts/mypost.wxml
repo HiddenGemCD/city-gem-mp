@@ -1,0 +1,12 @@
+<!--pages/posts/mypost.wxml-->
+
+<view>My Posts</view>
+<block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
+  <view class="post">
+      <view class="name">{{post.name}}</view>
+  <!-- <image bindtap='viewList' class="avatar" id="{{post.user_id}}" data-avatar_url="{{post.avatar_url}}" src="{{post.avatar_url}}"></image> -->
+      <view class="description">{{post.description}}</view>
+  </view>
+  <image class='icon' id='{{post.id}}' src='/commons/assets/icons/trash.png' bindtap='deletePost'></image>
+  <image class='icon' id='{{post.id}}' src='/commons/assets/icons/edit.png' bindtap='editPost'></image>
+</block>
