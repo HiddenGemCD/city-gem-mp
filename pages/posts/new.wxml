@@ -3,7 +3,7 @@
     <button bindtap="getPlace"> {{name}} </button>
     <view class="user-input">
       <textarea placeholder="Description" name="description" auto-height />
-     </view>
+    </view>
 
     <button class="btn submit-button" form-type="submit" >Submit</button>
 </form>
