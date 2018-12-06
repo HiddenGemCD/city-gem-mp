@@ -16,24 +16,7 @@ Page({
         console.log(res.data.posts)
       }
     })
-    // myRequest.get({
-    //   path: 'users',
-    //   success(res) {
-    //     page.setData({ users: res.data.users })
-    //     // console.log(page.data)
-    //   }
-    // })
   },
-  // goAllposts: function () {
-  //   wx.navigateTo({
-  //     url: '/pages/list/index'
-  //   })
-  // },
-  // goMyposts: function () {
-  //   wx.navigateTo({
-  //     url: '/pages/list/mylist'
-  //   })
-  // },
   newPost: function () {
     wx.navigateTo({
       url: '/pages/posts/new'
@@ -92,5 +75,4 @@ Page({
     let vote = this.data.vote
     this.setData({ vote: !vote })
   }
-
 })

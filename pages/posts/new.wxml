@@ -1,13 +1,10 @@
 <!--pages/posts/new.wxml-->
 <form bindsubmit="bindSubmit">
+    <button bindtap="getPlace"> {{name}} </button>
     <view class="user-input">
-     <view class="text-area-wrap">
-      <textarea placeholder="Name" name="name" auto-height />
-     </view>
-     <view class="text-area-wrap">
       <textarea placeholder="Description" name="description" auto-height />
      </view>
-    </view>
+
     <button class="btn submit-button" form-type="submit" >Submit</button>
 </form>
-  
+
