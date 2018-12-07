@@ -10,7 +10,7 @@ Page({
     let page = this
     let user_id = app.globalData.userId.id
     myRequest.get({
-      path: 'users/' + user_id +'/posts/by_recent',
+      path: 'users/' + user_id + '/posts/by_recent',
       success(res) {
         page.setData({ posts: res.data.posts })
       }
