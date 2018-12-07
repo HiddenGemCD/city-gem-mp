@@ -15,8 +15,6 @@
       </block>
         <image class='icon' id='{{post.id}}' src='/commons/assets/icons/trash.png' bindtap='deletePost'></image>
   <image class='icon' id='{{post.id}}' src='/commons/assets/icons/edit.png' bindtap='editPost'></image>
-      <!-- <view class="count">{{post.votes}}</view>
-      <button id="{{postsIndex}}" bindtap = "{{post.upvoted_by_current_user ? 'unvote' : 'vote'}}" class="{{post.upvoted_by_current_user ? 'voted':''}}">{{post.upvoted_by_current_user ? 'unvote':'vote'}}</button> -->
   </view>
 </block>
 

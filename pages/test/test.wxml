@@ -1,42 +1,60 @@
-<form bindsubmit="bindSubmit">
- <view class="container">
-   <view class="top">
-     <view class="form-title">Create Card</view>
-     <view id="cross">X</view>
-   </view>
-   <view class="form-subtitle">
-     <view>Make a note about your favorite places</view>
-     <view>Share it with friends on WeChat</view>
-   </view>
+<!--pages/profile/profile.wxml-->
+<view class='user-flex'>
+  <image class='avatar' src="{{user.avatar}}"/>
+  <view><text class='name'>{{user.name}}</text>
+  <text style='font-size:11px'>I am a panda living in Chengdu</text>
+  </view>
+</view>
 
-   <view class="first-line">
-    <view class="form-field category">
-      <view class="flex-view{{item.active?' active':''}}" wx:for="{{tabTxt}}" wx:key="" data-index="{{index}}" bindtap="filterTab">
-      <text>{{item.text}}</text>
+<view style='display:flex; flex-wrap:wrap; justify-content:center;'>
+<text style='text-align:center; font-size:18px; color:#FF2965; font-weight:bold; margin:3px;'>Your Cards:</text>
+</view>
+
+
+<view class='flex'>
+  <block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
+  <!-- card container -->
+    <view class='card-container'>
+  <!-- card styling -->
+      <view class='card-style'>
+  <!-- card content -->
+        <view class='cat-text'>{{post.category}}
+          <text style='color:black; font-weight: normal;'>@ </text>
+          <text style='color: black;'>{{post.name}}</text>
+        </view>
+
+        <view class='card-description'>{{post.description}}
+        </view>
+        <view style='display:flex; justify-content:space-between; align-items:center;'>
+            <!-- item on the left -->
+            <view style='display:flex; justify-content:flex-start; align-items:center;'>
+                <view><image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"/></view>
+                <view><image class='pin' src='/images/pin.png'/></view>
+                <view class='pin-location'>Chengdu</view>
+            </view>
+
+            <!-- item on the right -->
+            <view style='padding-right:30rpx;'>
+                  <view class='date'>1 week ago</view>
+            </view>
+            
+        </view>
+        
+      </view>
     </view>
-    </view>
-     <view class="purple">@</view>
-     <view bindtap="getPlace" class="form-field name">{{name}}</view>
-   </view>
-
-   <view class="desc-box">
-    <textarea placeholder="I recommend this because..." name="description" />
-   </view>
-   
-   <view class="form-field">
-    <textarea placeholder="put tags separted with ," name="tagstring" auto-height />
-   </view>
-   
-   <view class="form-field">
-    <textarea placeholder="address" value="{{address}}" name="address" auto-height />
-   </view>
-
-   <button class="submit" form-type="submit" >Create</button>
- </view>
-</form>
+  </block>
+</view>
 
 
-    <view class="dropdown-tab-layout" hidden="{{!item.active}}" wx:for="{{tabTxt}}"  wx:for-item="item" data-index="{{index}}" bindtap="filterTabChild">
-        <view class="{{item.type==0?'active':''}}" data-id="0" data-index="0" bindtap="filter">不限</view>
-        <view class="{{item.type==item_child.id?'active':''}}" wx:for="{{item.child}}" wx:for-item="item_child" wx:key="" data-id="{{item_child.id}}" data-index="0" data-txt="{{item_child.text}}" bindtap="filter">{{item_child.text}}</view>
-    </view>
+<!-- <block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
+  <view class="post">
+      <view class="category">{{post.category}}</view> 
+      <view class="name">@ {{post.name}}</view>
+      <view class="description">{{post.description}}</view>
+      <block wx:for="{{post.tag_list}}" wx:for-item="tag" wx:for-index="tagsIndex" wx:key="tags">
+        <view class="tag">{{tag}}</view>
+      </block>
+        <image class='icon' id='{{post.id}}' src='/commons/assets/icons/trash.png' bindtap='deletePost'></image>
+  <image class='icon' id='{{post.id}}' src='/commons/assets/icons/edit.png' bindtap='editPost'></image>
+  </view>
+</block> -->
