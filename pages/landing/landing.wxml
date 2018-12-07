@@ -1,6 +1,6 @@
 
 <!--pages/landing/landing.wxml-->
-<view class="container">
+<!-- <view class="container">
   <view class="avatar">
     <open-data type="userAvatarUrl"></open-data>
   </view>
@@ -9,4 +9,16 @@
     <open-data type="userNickName"></open-data>
   </view>
   <button bindtap="goNext" class="btn btn-start">Start now</button>
-</view>
+</view> -->
+
+<!--index.wxml-->
+
+<view style='padding-top:320rpx;'/>
+
+<!-- logo -->
+<image src='/images/logo.png' class='logo'></image>
+
+<view style='padding-top:320rpx;'/>
+
+<!-- enter button -->
+<button class='enter' hover-class='button-hover' bindtap='goNext'>Enter</button>
