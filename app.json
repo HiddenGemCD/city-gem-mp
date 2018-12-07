@@ -4,7 +4,8 @@
     "pages/posts/index",
     "pages/posts/new",
     "pages/posts/mypost",
-    "pages/posts/edit"
+    "pages/posts/edit",
+    "pages/test/test"
   ],
   "window":{
     "backgroundTextStyle":"light",
