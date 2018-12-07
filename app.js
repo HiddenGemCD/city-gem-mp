@@ -53,12 +53,14 @@ App({
   getPermission: function (obj) {
     wx.chooseLocation({
       success: function (res) {
-        obj.setData({
-          name: res.name,
-          address: res.address,
-          latitude: res.latitude,
-          longitude: res.longitude
-        })
+        if (res.name != "") {
+          obj.setData({
+            name: res.name,
+            address: res.address,
+            latitude: res.latitude,
+            longitude: res.longitude
+          })
+        }
         console.log(44, res)
       },
       fail: function () {
@@ -82,12 +84,14 @@ App({
 
                           wx.chooseLocation({
                             success: function (res) {
-                              obj.setData({
-                                name: res.name,
-                                address: res.address,
-                                latitude: res.latitude,
-                                longitude: res.longitude,
-                              })
+                              if (res.name != "") {
+                                obj.setData({
+                                  name: res.name,
+                                  address: res.address,
+                                  latitude: res.latitude,
+                                  longitude: res.longitude
+                                })
+                              }
                               console.log(44, res)
                             },
                           })

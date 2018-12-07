@@ -37,7 +37,10 @@ Page({
           name: page.data.name,
           description: e.detail.value.description,
           address: page.data.address,
-          category: page.data.searchParam[0]
+          latitude: page.data.latitude,
+          longitude: page.data.longitude,
+          category: page.data.searchParam[0],
+          tagstring: e.detail.value.tagstring
         }
       },
       success(res) {

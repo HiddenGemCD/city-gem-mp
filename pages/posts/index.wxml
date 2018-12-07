@@ -2,11 +2,15 @@
 <view>All Posts order by desc</view>
 <block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
   <view class="post">
-      <view class="name">{{post.name}}</view>
-  <!-- <image bindtap='viewList' class="avatar" id="{{post.user_id}}" data-avatar_url="{{post.avatar_url}}" src="{{post.avatar_url}}"></image> -->
+      <view class="category">{{post.category}}</view> 
+      <view class="name">@ {{post.name}}</view>
+  <image class="avatar" id="{{post.user_id}}" data-avatar_url="{{post.user.avatar}}" src="{{post.user.avatar}}"></image>
       <view class="description">{{post.description}}</view>
-      <view class="count">{{post.votes}}</view>
-      <button id="{{postsIndex}}" bindtap = "{{post.upvoted_by_current_user ? 'unvote' : 'vote'}}" class="{{post.upvoted_by_current_user ? 'voted':''}}">{{post.upvoted_by_current_user ? 'unvote':'vote'}}</button>
+      <block wx:for="{{post.tags}}" wx:for-item="tag" wx:for-index="tagsIndex" wx:key="tags">
+        <view class="tag">{{tag}}</view>
+      </block>
+      <!-- <view class="count">{{post.votes}}</view>
+      <button id="{{postsIndex}}" bindtap = "{{post.upvoted_by_current_user ? 'unvote' : 'vote'}}" class="{{post.upvoted_by_current_user ? 'voted':''}}">{{post.upvoted_by_current_user ? 'unvote':'vote'}}</button> -->
   </view>
 </block>
 

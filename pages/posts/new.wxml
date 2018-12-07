@@ -14,10 +14,10 @@
     </view>
     <button bindtap="getPlace"> {{name}} </button>
     <view>{{address}}</view>
-    <view class="user-input">
-      <textarea placeholder="Description" name="description" auto-height />
-    </view>
 
+    <textarea placeholder="Description" name="description" auto-height />
+    <textarea placeholder="tags separted with ," name="tagstring" auto-height />
+    <view class="tag">Tag</view>
     <button class="btn submit-button" form-type="submit" >Submit</button>
 </form>
 
