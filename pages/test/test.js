@@ -65,6 +65,7 @@ Page({
     var page = this;
     app.getPermission(page); // Enter     that value to set the content directly on the app.js page  
   },
+
   // drop down js
   filterTab: function (e) {
     var that = this;
@@ -78,6 +79,7 @@ Page({
     this.setData({
       tabTxt: data
     })
+
   },
   filterTabChild: function (e) {
 
@@ -101,10 +103,15 @@ Page({
         //更改删除条件
         that.data.searchParam[index] = data[index].text;
       }
+
+
     }
+
     that.setData({
       tabTxt: data
     })
     console.log(that.data.searchParam);
+
+
   }
 })
