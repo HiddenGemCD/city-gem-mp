@@ -3,14 +3,11 @@ const myRequest = require('../../lib/api/request');
 
 Page({
   data: {
-    posts: [],
-    vote: false
+    posts: []
   },
   onLoad: function () {
     let page = this
-    // Fetch Items from API
     myRequest.get({
-      // path: "posts?user_id=" + app.globalData.userId.id,
       path: "posts",
       success(res) {
         page.setData({ posts: res.data.posts })

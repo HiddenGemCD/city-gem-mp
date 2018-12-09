@@ -1,23 +1,116 @@
 <!--pages/posts/mypost.wxml-->
+<view class="wrapper">
 
-<view>My Posts</view>
+<!-- profile -->
+
+<view class="profile">
+  <view class="avatar"><open-data type="userAvatarUrl"></open-data></view>
+  <view class="profile-content">
+    <view class="greeting">Welcome, <open-data type="userNickName"></open-data></view>
+
+    <view class="line"></view>
+
+    <view class="status">
+      <view class="qty-posts">14 posts in</view>
+      <view class="qty-cities">14 cities</view>
+    </view>
+  </view>
+</view>
+
+<!-- tabs -->
+<view class="tabs">
+  <view class="tab tab-categories">All Categories<image class="caret-down" src="/commons/assets/icons/caret-down.png"></image></view>
+  
+  <view class="tab tab-cities">All Cities<image class="caret-down" src="/commons/assets/icons/caret-down.png"></image></view>
+  
+</view>
 
 
-<!--pages/posts/index.wxml-->
-<view>All Posts order by desc</view>
-<block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
-  <view class="post">
-      <view class="category">{{post.category}}</view> 
-      <view class="name">@ {{post.name}}</view>
-      <view class="description">{{post.description}}</view>
-      <block wx:for="{{post.tag_list}}" wx:for-item="tag" wx:for-index="tagsIndex" wx:key="tags">
-        <view class="tag">{{tag}}</view>
-      </block>
-        <image class='icon' id='{{post.id}}' src='/commons/assets/icons/trash.png' bindtap='deletePost'></image>
-  <image class='icon' id='{{post.id}}' src='/commons/assets/icons/edit.png' bindtap='editPost'></image>
-      <!-- <view class="count">{{post.votes}}</view>
-      <button id="{{postsIndex}}" bindtap = "{{post.upvoted_by_current_user ? 'unvote' : 'vote'}}" class="{{post.upvoted_by_current_user ? 'voted':''}}">{{post.upvoted_by_current_user ? 'unvote':'vote'}}</button> -->
+<!-- post  -->
+
+  <block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
+  <view   id="{{postsIndex}}"  class="post-container" >
+    <view id="{{postsIndex}}" class="post {{flip[postsIndex]?'flipped':''}}" bindtap = "flip">
+      <view class="front face {{flip[postsIndex]?'hidden':''}}">
+          <button class="btn-share" open-type="share" ><image class='icon icon-share' src="/commons/assets/icons/share.png" bindtap='share'></image></button>
+        <view class="post-content-top">
+          <view class="category">{{post.category}}</view> 
+          <view class="at_symbol">@</view>
+          <view class="name">{{post.name}}</view>
+        </view>
+
+        <!-- <view class="description">{{post.description}}</view> -->
+        <block class="tags" wx:for="{{post.tags}}" wx:for-item="tag" wx:for-index="tagsIndex" wx:key="tags">
+          <view class="tag">{{tag}}</view>
+        </block>
+
+        <view class="post-content-bottom">
+          <view class="city">
+            <image class="map-marker" src='/commons/assets/icons/map-marker.png'></image>
+            <view class="map-text">{{post.city.name}}</view>
+          </view>
+
+          <view class="time_ago">{{post.time_ago}} ago</view>
+        </view>
+      </view>
+
+
+      <!-- post back face -->
+      <view class="back face {{flip[postsIndex]?'':'hidden'}}"id="{{postsIndex}}">
+          <button class="btn-share" open-type="share"><image class='icon icon-share' src="/commons/assets/icons/share.png" bindtap='share'></image></button>
+          
+        <view class="post-content-top">
+          <view class="category">{{post.category}}</view> 
+          <view class="at_symbol">@</view>
+          <view class="name">{{post.name}}</view>
+        </view>
+
+        <!-- <view class="description">{{post.description}}</view> -->
+        <block class="tags" wx:for="{{post.tags}}" wx:for-item="tag" wx:for-index="tagsIndex" wx:key="tags">
+          <view class="tag">{{tag}}</view>
+        </block>
+
+        <view class="description">
+          {{post.description}}
+        </view>
+
+        <view class="post-content-bottom">
+          <view class="city">
+            <image class="map-marker" src='/commons/assets/icons/map-marker.png'></image>
+            <view class="map-text">{{post.city.name}}</view>
+          </view>
+        </view>
+
+        <view class="map">
+        <map id="map" longitude="{{post.longitude}}" latitude="{{post.latitude}}" scale="14" markers="{{markers}}" bindmarkertap="markertap" show-location style="width: 100%; height: 150px;"></map>  
+        </view>
+        <view class="control">
+          <view class='control-item edit'id='{{post.id}}'bindtap='editPost'>
+            Edit
+          </view>
+          <view class='control-item delete'id='{{post.id}}'bindtap='deletePost'>
+            Delete
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 </block>
 
+</view>
 
+
+
+<!-- 
+
+<div class="card-container" bindtap = "flip">
+  <div class="card {{flip ? 'flipped':''}}">
+    <div class="front face">
+    
+    
+    </div>
+    <div class="back face">Back</div>
+  </div>
+</div>
+
+ -->
