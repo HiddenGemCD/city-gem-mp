@@ -3,14 +3,15 @@ const myRequest = require('../../lib/api/request');
 
 Page({
   data: {
-    posts: []
+    posts: [],
+    flip: {}
   },
   onLoad: function (options) {
     // console.log(app.globalData.userId.id)
     let page = this
     let user_id = app.globalData.userId.id
     myRequest.get({
-      path: 'users/' + user_id +'/posts/by_recent',
+      path: "posts?user_id =" + app.globalData.userId.id,
       success(res) {
         page.setData({ posts: res.data.posts })
       }
@@ -40,4 +41,22 @@ Page({
       }
     })
   },
+  flip: function (e) {
+    // this.setData({
+    //   _num: e.currentTarget.id
+    // })
+    
+    let that = this
+    let id = e.currentTarget.id
+    let flip = that.data.flip
+    // console.log(flip[id])
+    // console.log(flip[e.currentTarget.id])
+    flip[id] = !flip[id]
+    console.log(flip[id])
+
+    this.setData({
+      flip: that.data.flip
+    })
+
+  }
 })
