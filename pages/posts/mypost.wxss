@@ -204,3 +204,19 @@
   background: #FF2965;
   color: white;
 }
+
+.post-container {
+  z-index: 9999
+}
+button::after{ border: none; }
+.btn-share {
+  display: inline-block;
+  float: right;
+  background: none;
+  border:none;
+  padding: 5rpx 30rpx;
+}
+.icon-share {
+  width: 20px;
+  height: 20px;
+}

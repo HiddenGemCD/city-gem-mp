@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -61,6 +61,18 @@
 					"id": 3,
 					"name": "test page",
 					"pathName": "pages/test/test",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "test page",
+					"pathName": "pages/share/share",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "edit",
+					"pathName": "pages/posts/edit",
 					"query": ""
 				}
 			]

@@ -11,7 +11,7 @@
     <view class="line"></view>
 
     <view class="status">
-      <view class="qty-cards">14 cards in</view>
+      <view class="qty-posts">14 posts in</view>
       <view class="qty-cities">14 cities</view>
     </view>
   </view>
@@ -29,10 +29,10 @@
 <!-- post  -->
 
   <block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
-  <view   id="{{postsIndex}}"  class="post-container" bindtap = "flip">
-    <view class="post {{flip[postsIndex]?'flipped':''}}">
+  <view   id="{{postsIndex}}"  class="post-container" >
+    <view id="{{postsIndex}}" class="post {{flip[postsIndex]?'flipped':''}}" bindtap = "flip">
       <view class="front face {{flip[postsIndex]?'hidden':''}}">
-
+          <button class="btn-share" open-type="share" ><image class='icon icon-share' src="/commons/assets/icons/share.png" bindtap='share'></image></button>
         <view class="post-content-top">
           <view class="category">{{post.category}}</view> 
           <view class="at_symbol">@</view>
@@ -56,7 +56,9 @@
 
 
       <!-- post back face -->
-      <view class="back face {{flip[postsIndex]?'':'hidden'}}">
+      <view class="back face {{flip[postsIndex]?'':'hidden'}}"id="{{postsIndex}}">
+          <button class="btn-share" open-type="share"><image class='icon icon-share' src="/commons/assets/icons/share.png" bindtap='share'></image></button>
+          
         <view class="post-content-top">
           <view class="category">{{post.category}}</view> 
           <view class="at_symbol">@</view>

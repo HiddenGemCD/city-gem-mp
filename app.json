@@ -5,6 +5,7 @@
     "pages/posts/new",
     "pages/posts/mypost",
     "pages/posts/edit",
+    "pages/share/share",
     "pages/test/test"
   ],
   "window":{

@@ -12,16 +12,15 @@ Page({
       longitude: 121.480010986,
       width: 30,
       height: 30
-    },
-    // {
-    //   iconPath: "/commons/assets/icons/map-marker.png",
-    //   id: 1,
-    //   latitude: 30.65618,
-    //   longitude: 104.08329,
-    //   width: 30,
-    //   height: 30
-    // }
+    }
     ],
+  },
+  onShareAppMessage: function () {
+    return {
+      title: 'A nice place recoomended by your friend',
+      desc: 'Please check it out!',
+      path: '/page/share/share'
+    }
   },
   onLoad: function (options) {
 
@@ -32,7 +31,8 @@ Page({
     myRequest.get({
       path: "posts?user_id =" + app.globalData.userId.id,
       success(res) {
-        page.setData({ posts: res.data.posts })
+        page.setData({ posts: res.data.posts,
+         })
       }
     })
   },
@@ -68,6 +68,7 @@ Page({
 
   },
   flip: function (e) {
+    console.log('flip')
     let that = this
     let posts = that.data.posts
     let id = e.currentTarget.id
@@ -76,24 +77,28 @@ Page({
     let markers = that.data.markers
     markers.latitude = posts[id].latitude
     markers.longitude = posts[id].longitude
+    console.log(flip[id])
+    if (flip[id]) {
+      flip[id] = !flip[id]
+    }
+    else {
+      posts.forEach(function (item, index) {
+        flip[index] = false
+      })
+      flip[id] = !flip[id]
+    }
+    console.log(flip[id])
 
-
-
-    posts.forEach(function (item, index) {
-      flip[index] = false
-    })
-
-    flip[id] = !flip[id]
+    // flip[id] = !flip[id]
 
     this.setData({
       markers: that.data.markers,
-    })
-
-    this.setData({
       flip: that.data.flip,
     })
-    console.log(markers)
-    console.log(this.data)
-    
+  },
+  // share function
+  share: function(e){
+    console.log(e)
+    this.onShareAppMessage
   }
 })
