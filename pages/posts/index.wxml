@@ -17,7 +17,7 @@
 
   <!-- post  -->
   <block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
-    <view class="post">
+    <view class="post ">
       <view class="rank">{{postsIndex + 1}}</view>
       <view class="post-content">
         <view class="post-content-top">
