@@ -14,30 +14,30 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
   },
-  "tabBar": {
-    "backgroundColor": "#FFFFFE",
-    "borderStyle": "#D3D3D3",
-    "selectedColor": "#D03232",
-    "color": "#888888",
-    "list": [
-      {
-        "pagePath": "pages/posts/index",
-        "text": "首頁",
-        "iconPath": "/commons/assets/icons/home.png",
-        "selectedIconPath": "/commons/assets/icons/home-active.png"
-      },
-      {
-        "pagePath": "pages/posts/new",
-        "text": "新增",
-        "iconPath": "/commons/assets/icons/add.png",
-        "selectedIconPath": "/commons/assets/icons/add-active.png"
-      },
-      {
-        "pagePath": "pages/posts/mypost",
-        "text": "我的",
-        "iconPath": "/commons/assets/icons/user.png",
-        "selectedIconPath": "/commons/assets/icons/user-active.png"
-      }
-    ]
-  }
+    "tabBar": {
+      "backgroundColor": "#FFFFFE",
+      "borderStyle": "#D3D3D3",
+      "selectedColor": "#D03232",
+      "color": "#888888",
+      "list": [
+        {
+          "pagePath": "pages/posts/mypost",
+          "text": "Profile",
+          "iconPath": "/commons/assets/icons/user.png",
+          "selectedIconPath": "/commons/assets/icons/user-active.png"
+        },
+        {
+          "pagePath": "pages/posts/new",
+          "text": "Add",
+          "iconPath": "/commons/assets/icons/add.png",
+          "selectedIconPath": "/commons/assets/icons/add-active.png"
+        },
+        {
+          "pagePath": "pages/posts/index",
+          "text": "Discover",
+          "iconPath": "/commons/assets/icons/binoculars.png",
+          "selectedIconPath": "/commons/assets/icons/binoculars-active.png"
+        }
+      ]
+    }
 }
