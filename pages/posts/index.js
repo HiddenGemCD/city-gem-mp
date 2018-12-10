@@ -25,7 +25,7 @@ Page({
     console.log('filter!')
     let page = this
     let user_id = app.globalData.userId.id
-    let category = 'drink'
+    let category = 'play'
     let city = '上海'
     myRequest.get({
       path: "posts?category=" + category + '&city=' + city,

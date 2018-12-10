@@ -113,7 +113,7 @@ Page({
   filtered: function() {
     let page = this
     let user_id = app.globalData.userId.id
-    let category = 'eat'
+    let category = 'play'
     let city = '四川省'
     myRequest.get({
       // path: "posts?user_id =" + user_id,
