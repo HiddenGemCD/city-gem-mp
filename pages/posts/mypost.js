@@ -24,13 +24,13 @@ Page({
   },
   onLoad: function (options) {
 
-    console.log(this.data.markers)
+    // console.log(this.data.markers)
     // console.log(app.globalData.userId.id)
     let page = this
     let user_id = app.globalData.userId.id
-    myRequest.get({
-      path: "posts?user_id =" + app.globalData.userId.id,
 
+    myRequest.get({
+      path: "posts?user_id =" + user_id,
       success(res) {
         page.setData({ posts: res.data.posts,
          })
@@ -105,5 +105,23 @@ Page({
   share: function(e){
     console.log(e)
     this.onShareAppMessage
+  },
+
+  // filtered
+  filtered: function() {
+    let page = this
+    let user_id = app.globalData.userId.id
+    let category = 'drink'
+    let city = '上海'
+    myRequest.get({
+      // path: "posts?user_id =" + user_id,
+      path: "posts?category=" + category + '&city=' + city + '&user_id=' + user_id,
+
+      success(res) {
+        page.setData({
+          posts: res.data.posts,
+        })
+      }
+    })
   }
 })

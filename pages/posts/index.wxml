@@ -11,7 +11,7 @@
 
   <!-- tab--all/city -->
   <view class="tabs flex">
-    <view class="tab">All</view>
+    <view class="tab" bindtap='filtered'>All</view>
     <view class="tab">City</view>
   </view>
 
