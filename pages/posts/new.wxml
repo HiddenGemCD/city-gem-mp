@@ -2,7 +2,6 @@
  <view class="container">
    <view class="top">
      <view class="form-title">Create Card</view>
-     <view id="cross">X</view>
    </view>
    <view class="form-subtitle">
      <view>Make a note about your favorite places</view>

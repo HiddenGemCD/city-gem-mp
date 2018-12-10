@@ -1,25 +1,8 @@
 <!--pages/posts/edit.wxml-->
 <form bindsubmit="bindSubmit">
-    <view class="user-input">
-     <view class="text-area-wrap">
-      <textarea placeholder="Name" value="{{name}}" name="name" auto-height />
-     </view>
-    </view>
-    <view class="user-input">
-     <view class="text-area-wrap">
-      <textarea placeholder="Description" value="{{description}}" name="description" auto-height />
-     </view>
-    </view>
-    <button class="submit-button" form-type="submit" >Submit</button>
-</form>
-
-<!-- ..... -->
-
-<form bindsubmit="bindSubmit">
  <view class="container">
    <view class="top">
      <view class="form-title">Edit Card</view>
-     <view id="cross">X</view>
    </view>
    <view class="form-subtitle">
      <view>Make a note about your favorite places</view>

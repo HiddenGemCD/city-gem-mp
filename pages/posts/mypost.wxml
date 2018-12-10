@@ -12,8 +12,8 @@
     <view class="line"></view>
 
     <view class="status">
-      <view class="qty-posts">14 posts in</view>
-      <view class="qty-cities">14 cities</view>
+      <view class="qty-posts">{{post_qty}} posts in</view>
+      <view class="qty-cities">{{city_qty}} cities</view>
     </view>
   </view>
 </view>

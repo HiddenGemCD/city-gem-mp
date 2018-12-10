@@ -30,9 +30,11 @@ Page({
     let user_id = app.globalData.userId.id
 
     myRequest.get({
-      path: "posts?user_id =" + user_id,
+      path: "posts?user_id=" + user_id,
       success(res) {
         page.setData({ posts: res.data.posts,
+          post_qty: res.data.post_qty,
+          city_qty: res.data.city_qty,
          })
       }
     })
@@ -111,8 +113,8 @@ Page({
   filtered: function() {
     let page = this
     let user_id = app.globalData.userId.id
-    let category = 'drink'
-    let city = '上海'
+    let category = 'eat'
+    let city = '四川省'
     myRequest.get({
       // path: "posts?user_id =" + user_id,
       path: "posts?category=" + category + '&city=' + city + '&user_id=' + user_id,
