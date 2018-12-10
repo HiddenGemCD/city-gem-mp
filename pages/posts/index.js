@@ -7,7 +7,7 @@ Page({
   },
   onLoad: function () {
     let page = this
-    myRequest.get({
+    myRequest.get({  
       path: "posts",
       success(res) {
         page.setData({ posts: res.data.posts })
@@ -27,6 +27,21 @@ Page({
       url: '/pages/posts/new'
     })
   },
+
+  filtered: function () {
+    let page = this
+    let user_id = app.globalData.userId.id
+    let category = 'play'
+    let city = '四川省'
+    myRequest.get({
+      path: "posts?category=" + category + '&city=' + city,
+      success(res) {
+        page.setData({
+          posts: res.data.posts,
+        })
+      }
+    })
+  }
   // vote: function (e) {
   //   console.log('vote!')
   //   let page = this

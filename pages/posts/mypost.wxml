@@ -20,7 +20,7 @@
 
 <!-- tabs -->
 <view class="tabs">
-  <view class="tab tab-categories">All Categories<image class="caret-down" src="/commons/assets/icons/caret-down.png"></image></view>
+  <view class="tab tab-categories" bindtap='filtered'>All Categories<image class="caret-down" src="/commons/assets/icons/caret-down.png"></image></view>
   
   <view class="tab tab-cities">All Cities<image class="caret-down" src="/commons/assets/icons/caret-down.png"></image></view>
   
