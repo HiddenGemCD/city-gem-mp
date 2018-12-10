@@ -14,6 +14,13 @@ Page({
         console.log(res.data.posts)
       }
     })
+    // myRequest.get({
+    //   path: "posts_by_trend",
+    //   success(res) {
+    //     page.setData({ posts: res.data.posts })
+    //     console.log(res.data.posts)
+    //   }
+    // })
   },
   newPost: function () {
     wx.navigateTo({
