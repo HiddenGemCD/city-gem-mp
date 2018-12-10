@@ -1,17 +1,47 @@
 <!--pages/posts/index.wxml-->
-<view>All Posts order by desc</view>
-<block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
-  <view class="post">
-      <view class="category">{{post.category}}</view> 
-      <view class="name">@ {{post.name}}</view>
-  <image class="avatar" id="{{post.user_id}}" data-avatar_url="{{post.user.avatar}}" src="{{post.user.avatar}}"></image>
-      <view class="description">{{post.description}}</view>
-      <block wx:for="{{post.tags}}" wx:for-item="tag" wx:for-index="tagsIndex" wx:key="tags">
-        <view class="tag">{{tag}}</view>
-      </block>
-      <!-- <view class="count">{{post.votes}}</view>
-      <button id="{{postsIndex}}" bindtap = "{{post.upvoted_by_current_user ? 'unvote' : 'vote'}}" class="{{post.upvoted_by_current_user ? 'voted':''}}">{{post.upvoted_by_current_user ? 'unvote':'vote'}}</button> -->
+<view class="wrapper">
+
+  <!-- header--trending -->
+  <view class="header">
+    <view class="flex">
+      <image class="icon" src="/commons/assets/icons/fire.png"></image>
+    <text class="header-text">Trending</text>
+    </view>
   </view>
-</block>
+
+  <!-- tab--all/city -->
+  <view class="tabs flex">
+    <view class="tab">All</view>
+    <view class="tab">City</view>
+  </view>
+
+  <!-- post  -->
+  <block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
+    <view class="post">
+      <view class="rank">{{postsIndex + 1}}</view>
+      <view class="post-content">
+        <view class="post-content-top">
+          <view class="category">{{post.category}} </view> 
+          <view>@</view>
+          <view class="name">{{post.name}}</view>
+        </view>
+        <view class="post-content-bottom">
+          <image class="map-marker" src='/commons/assets/icons/map-marker.png'></image>
+          <view class="city">{{post.city.name}}</view>
+        </view>
+        
+      </view>
+
+    <!-- <image class="avatar" id="{{post.user_id}}" data-avatar_url="{{post.user.avatar}}" src="{{post.user.avatar}}"></image> -->
+        <!-- <view class="description">{{post.description}}</view> -->
+        <!-- <block wx:for="{{post.tags}}" wx:for-item="tag" wx:for-index="tagsIndex" wx:key="tags">
+          <view class="tag">{{tag}}</view>
+        </block>
+        <view class="time_ago">{{post.time_ago}}</view> -->
+        <!-- <view class="count">{{post.votes}}</view>
+        <button id="{{postsIndex}}" bindtap = "{{post.upvoted_by_current_user ? 'unvote' : 'vote'}}" class="{{post.upvoted_by_current_user ? 'voted':''}}">{{post.upvoted_by_current_user ? 'unvote':'vote'}}</button> -->
+    </view>
+  </block>
+</view>
 
 

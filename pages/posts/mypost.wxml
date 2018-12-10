@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!--pages/posts/mypost.wxml-->
 <view class="wrapper">
 
@@ -102,37 +102,3 @@
 
 
 
-<!-- 
-
-<div class="card-container" bindtap = "flip">
-  <div class="card {{flip ? 'flipped':''}}">
-    <div class="front face">
-    
-    
-    </div>
-    <div class="back face">Back</div>
-  </div>
-</div>
-
- -->
-=======
-<view>My Posts</view>
-
-
-<!--pages/posts/index.wxml-->
-<view>All Posts order by desc</view>
-<block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
-  <view class="post">
-      <view class="category">{{post.category}}</view> 
-      <view class="name">@ {{post.name}}</view>
-      <view class="description">{{post.description}}</view>
-      <block wx:for="{{post.tag_list}}" wx:for-item="tag" wx:for-index="tagsIndex" wx:key="tags">
-        <view class="tag">{{tag}}</view>
-      </block>
-        <image class='icon' id='{{post.id}}' src='/commons/assets/icons/trash.png' bindtap='deletePost'></image>
-  <image class='icon' id='{{post.id}}' src='/commons/assets/icons/edit.png' bindtap='editPost'></image>
-      <!-- <view class="count">{{post.votes}}</view>
-      <button id="{{postsIndex}}" bindtap = "{{post.upvoted_by_current_user ? 'unvote' : 'vote'}}" class="{{post.upvoted_by_current_user ? 'voted':''}}">{{post.upvoted_by_current_user ? 'unvote':'vote'}}</button> -->
-  </view>
-</block>
->>>>>>> update profile page
