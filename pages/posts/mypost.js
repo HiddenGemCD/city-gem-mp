@@ -33,6 +33,8 @@ Page({
       path: "posts?user_id=" + user_id,
       success(res) {
         page.setData({ posts: res.data.posts,
+          post_qty: res.data.post_qty,
+          city_qty: res.data.city_qty,
          })
       }
     })
