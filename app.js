@@ -2,6 +2,7 @@
 App({
   onLaunch: function () {
     const host = 'http://localhost:3000/';
+    // const host = 'https://citygem.wogengapp.cn/';
     console.log('processing to login');
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
