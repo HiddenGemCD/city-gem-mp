@@ -19,7 +19,8 @@ Page({
     return {
       title: 'A nice place recoomended by your friend',
       desc: 'Please check it out!',
-      path: '/page/share/share'
+      path: '/page/share/share',
+      imageUrl: '/images/logo.png'
     }
   },
   onLoad: function (options) {
@@ -27,22 +28,21 @@ Page({
     // console.log(this.data.markers)
     // console.log(app.globalData.userId.id)
     let page = this
-    let user_id = app.globalData.userId.id
-
+    this.setData({
+      user_id: app.globalData.userId.id
+    })
     myRequest.get({
-      path: "posts?user_id=" + user_id,
+      path: "posts?user_id=" + this.data.user_id,
       success(res) {
-        page.setData({ posts: res.data.posts,
+        page.setData({
+          posts: res.data.posts,
           post_qty: res.data.post_qty,
           city_qty: res.data.city_qty,
-         })
+        })
       }
     })
   },
-  onReady: function (e) {
-    // 使用 wx.createMapContext 获取 map 上下文
-    this.mapCtx = wx.createMapContext('myMap')
-  },
+
   newPost: function () {
     wx.navigateTo({
       url: '/pages/posts/new'
@@ -106,7 +106,11 @@ Page({
   // share function
   share: function(e){
     console.log(e)
-    this.onShareAppMessage
+    console.log("share")
+    wx.navigateTo({
+      url: '/pages/share/share?postId=' + e.target.id,
+    })
+    // this.onShareAppMessage
   },
 
   // filtered
