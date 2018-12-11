@@ -56,9 +56,6 @@
 .name {
   margin-left: 10rpx;
 }
-.post-content-bottom {
-
-}
 .map-marker {
   width: 12px;
   height: 15px;
@@ -71,7 +68,4 @@
 
 .hidden {
   display: none;
-}
-
-.display {
 }
