@@ -92,8 +92,6 @@ Page({
     
     newMarkers[0].latitude = posts[id].latitude
     newMarkers[0].longitude = posts[id].longitude
-    console.log(333,newMarkers)
-    console.log(flip[id])
     if (flip[id]) {
       flip[id] = !flip[id]
     }
@@ -103,10 +101,6 @@ Page({
       })
       flip[id] = !flip[id]
     }
-    console.log(flip[id])
-
-    // flip[id] = !flip[id]
-
     this.setData({
       markers: newMarkers,
       flip: that.data.flip,
