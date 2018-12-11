@@ -21,17 +21,24 @@
      <view bindtap="getPlace" class="form-field name">{{name}}</view>
    </view>
 
-   <view class="desc-box">
-    <textarea placeholder="I recommend this because..." name="description" />
+  <view wx:if="{{address}}" class="form-field">
+    <view>{{address}}</view>
    </view>
    
+
+    <view style='border:1px solid #8C4DE8; width:620rpx; display:flex; padding: 30rpx;'>
+      <view>
+     <textarea style='width:600rpx;' placeholder="I recommend this because..."  name="description"/>
+      </view>
+    
+    </view>
+     
+  
    <view class="form-field">
     <textarea placeholder="put tags separted with ," name="tagstring" auto-height />
    </view>
    
-   <view class="form-field">
-    <textarea placeholder="address" value="{{address}}" name="address" auto-height />
-   </view>
+  
 
    <button class="submit" hover-class='submit-hover' form-type="submit" >Create</button>
  </view>
