@@ -9,8 +9,8 @@ Page({
       id: 0,
       latitude: 31.236125946,
       longitude: 121.480010986,
-      width: 30,
-      height: 30
+      width: 15,
+      height: 20
     }
     ],
   },
