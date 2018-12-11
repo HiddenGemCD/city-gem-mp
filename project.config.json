@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -59,8 +59,8 @@
 				},
 				{
 					"id": 3,
-					"name": "test page",
-					"pathName": "pages/test/test",
+					"name": "picker",
+					"pathName": "pages/dropdown/picker",
 					"query": ""
 				},
 				{

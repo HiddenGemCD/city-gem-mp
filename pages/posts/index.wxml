@@ -11,8 +11,13 @@
 
   <!-- tab--all/city -->
   <view class="tabs flex">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
     <view class="tab" bindtap='filtered'>All</view>
+    </picker>
+
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{cities}}">
     <view class="tab">City</view>
+    </picker>
   </view>
 
   <!-- post  -->
