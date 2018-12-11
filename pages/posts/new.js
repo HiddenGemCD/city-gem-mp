@@ -4,6 +4,8 @@ const myRequest = require('../../lib/api/request');
 Page({
   data: {
     name: 'Choose Location',
+    array: ['Eat', 'Drink', 'Play'],
+    index: 0,
     tabTxt: [
       {
         'text': 'Category',
