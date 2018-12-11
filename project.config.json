@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -67,7 +67,7 @@
 					"id": 4,
 					"name": "share page",
 					"pathName": "pages/share/share",
-					"query": "postId=60"
+					"query": "postId=68"
 				},
 				{
 					"id": 5,

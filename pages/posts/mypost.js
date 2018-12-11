@@ -119,12 +119,13 @@ Page({
   },
 
   // filtered
-  filtered: function(e) {
-    console.log(e)
+  filtered: function() {
+    // console.log(e)
     let page = this
     let user_id = app.globalData.userId.id
     let category = this.data.current_category
     let city = this.data.current_city
+    
     myRequest.get({
       // path: "posts?user_id =" + user_id,
       path: "posts?category=" + category + '&city=' + city + '&user_id=' + user_id,
@@ -140,8 +141,10 @@ Page({
 
   bindPickerCategoryChange: function (e) {
     console.log('i am picker')
+    console.log(e)
     let index = e.detail.value
     let current_category = this.data.categories[index]
+    console.log(current_category)
     this.setData({
       current_category: current_category
     })
