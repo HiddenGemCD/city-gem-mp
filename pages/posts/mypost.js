@@ -15,11 +15,13 @@ Page({
     }
     ],
   },
-  onShareAppMessage: function () {
+  onShareAppMessage: function (e) {
+    console.log(e.target.id)
+    console.log()
     return {
       title: 'A nice place recoomended by your friend',
       desc: 'Please check it out!',
-      path: '/page/share/share',
+      path: '/pages/share/share?postId=' + e.target.id,
       imageUrl: '/images/logo.png'
     }
   },

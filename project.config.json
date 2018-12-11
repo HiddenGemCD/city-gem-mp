@@ -67,7 +67,7 @@
 					"id": 4,
 					"name": "share page",
 					"pathName": "pages/share/share",
-					"query": ""
+					"query": "postId=60"
 				},
 				{
 					"id": 5,

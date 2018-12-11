@@ -27,6 +27,7 @@ Page({
         page.setData({
           post: res.data.post,
           city: res.data.city,
+          shared_by: res.data.shared_by
         })
         let newMarkers = page.data.markers
         newMarkers[0].latitude = page.data.post.latitude
@@ -41,6 +42,7 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
+    
   },
 
   /**
@@ -79,5 +81,15 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  goToLanding: function () {
+    console.log("Go to landing")
+    wx.redirectTo({
+      url: '/pages/landing/landing',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
 })
