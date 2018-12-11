@@ -21,12 +21,12 @@
 <!-- tabs -->
 <view class="tabs">
 
-  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-  <view class="tab tab-categories">All Categories<image class="caret-down" src="/commons/assets/icons/caret-down.png"></image></view>
+  <picker bindchange="bindPickerCategoryChange" value="{{index}}" range="{{categories}}">
+  <view class="tab tab-categories">{{current_category}}<image class="caret-down" src="/commons/assets/icons/caret-down.png"></image></view>
   </picker>
 
-  <picker bindchange="bindPickerChange" value="{{index}}" range="{{cities}}">
-  <view class="tab tab-cities">All Cities<image class="caret-down" src="/commons/assets/icons/caret-down.png"></image></view>
+  <picker bindchange="bindPickerCityChange" value="{{index}}" range="{{cities}}">
+  <view class="tab tab-cities">{{current_city}}<image class="caret-down" src="/commons/assets/icons/caret-down.png"></image></view>
   </picker>
 
   
