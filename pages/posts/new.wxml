@@ -9,11 +9,12 @@
    </view>
 
    <view class="first-line">
-   <picker bindchange="Category" value="{{index}}" range="{{array}}">
+   <picker bindchange="bindPickerCategoryChange" value="{{categoryIndex}}" range="{{categories}}">
     <view class="form-field category">
-      <view class="flex-view{{item.active?' active':''}}" wx:for="{{tabTxt}}" wx:key="" data-index="{{index}}" bindtap="filterTab">
-      <text>{{item.text}}</text>
-    </view>
+      <view>{{current_category}}</view>
+      <!-- <view class="flex-view{{item.active?' active':''}}" wx:for="{{tabTxt}}" wx:key="" data-index="{{index}}" bindtap="filterTab">
+      <text>{{current_category}}</text>
+    </view> -->
     </view>
     </picker>
 

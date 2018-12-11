@@ -3,9 +3,10 @@ const myRequest = require('../../lib/api/request');
 
 Page({
   data: {
-    array: ['Eat', 'Drink', 'Play'],
-    index: 0,
-    cities: ['Chengdu', 'Shanghai'],
+    categories: ['Eat', 'Drink', 'Play'],
+    cities: [],
+    current_category: 'All',
+    current_city: 'City',
     posts: [],
     flip: {},
     markers: [{
@@ -47,6 +48,7 @@ Page({
           posts: res.data.posts,
           post_qty: res.data.post_qty,
           city_qty: res.data.city_qty,
+          cities: res.data.cities
         })
       }
     })
@@ -90,8 +92,6 @@ Page({
     
     newMarkers[0].latitude = posts[id].latitude
     newMarkers[0].longitude = posts[id].longitude
-    console.log(333,newMarkers)
-    console.log(flip[id])
     if (flip[id]) {
       flip[id] = !flip[id]
     }
@@ -101,10 +101,6 @@ Page({
       })
       flip[id] = !flip[id]
     }
-    console.log(flip[id])
-
-    // flip[id] = !flip[id]
-
     this.setData({
       markers: newMarkers,
       flip: that.data.flip,
@@ -123,20 +119,43 @@ Page({
   },
 
   // filtered
-  filtered: function() {
+  filtered: function(e) {
+    console.log(e)
     let page = this
     let user_id = app.globalData.userId.id
-    let category = 'play'
-    let city = '四川省'
+    let category = this.data.current_category
+    let city = this.data.current_city
     myRequest.get({
       // path: "posts?user_id =" + user_id,
       path: "posts?category=" + category + '&city=' + city + '&user_id=' + user_id,
 
       success(res) {
+        console.log(res)
         page.setData({
           posts: res.data.posts,
         })
       }
     })
+  },
+
+  bindPickerCategoryChange: function (e) {
+    console.log('i am picker')
+    let index = e.detail.value
+    let current_category = this.data.categories[index]
+    this.setData({
+      current_category: current_category
+    })
+    this.filtered()
+  },
+
+  bindPickerCityChange: function (e) {
+    console.log(e)
+    console.log('i am picker')
+    let index = e.detail.value
+    let current_city = this.data.cities[index]
+    this.setData({
+      current_city: current_city
+    })
+    this.filtered()
   }
 })

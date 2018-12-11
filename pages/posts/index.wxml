@@ -11,12 +11,12 @@
 
   <!-- tab--all/city -->
   <view class="tabs flex">
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-    <view class="tab" bindtap='filtered'>All</view>
+    <picker bindchange="bindPickerCategoryChange" value="{{categoryIndex}}" range="{{categories}}">
+      <view class="tab" bindtap='filtered'>{{current_category}}</view>
     </picker>
 
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{cities}}">
-    <view class="tab">City</view>
+      <picker bindchange="bindPickerCityChange" value="{{cityIndex}}" range="{{cities}}">
+    <view class="tab">{{current_city}}</view>
     </picker>
   </view>
 
@@ -36,15 +36,6 @@
         </view>
         
       </view>
-
-    <!-- <image class="avatar" id="{{post.user_id}}" data-avatar_url="{{post.user.avatar}}" src="{{post.user.avatar}}"></image> -->
-        <!-- <view class="description">{{post.description}}</view> -->
-        <!-- <block wx:for="{{post.tags}}" wx:for-item="tag" wx:for-index="tagsIndex" wx:key="tags">
-          <view class="tag">{{tag}}</view>
-        </block>
-        <view class="time_ago">{{post.time_ago}}</view> -->
-        <!-- <view class="count">{{post.votes}}</view>
-        <button id="{{postsIndex}}" bindtap = "{{post.upvoted_by_current_user ? 'unvote' : 'vote'}}" class="{{post.upvoted_by_current_user ? 'voted':''}}">{{post.upvoted_by_current_user ? 'unvote':'vote'}}</button> -->
     </view>
   </block>
 </view>
