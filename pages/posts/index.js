@@ -3,6 +3,9 @@ const myRequest = require('../../lib/api/request');
 
 Page({
   data: {
+    array: ['Eat', 'Drink', 'Play'],
+    index: 0,
+    cities: ['Chengdu', 'Shanghai'],
     posts: [],
   },
   onLoad: function () {

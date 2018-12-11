@@ -3,6 +3,9 @@ const myRequest = require('../../lib/api/request');
 
 Page({
   data: {
+    array: ['Eat', 'Drink', 'Play'],
+    index: 0,
+    cities: ['Chengdu', 'Shanghai'],
     posts: [],
     flip: {},
     markers: [{
@@ -15,6 +18,14 @@ Page({
     }
     ],
   },
+
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
+
   onShareAppMessage: function () {
     return {
       title: 'A nice place recoomended by your friend',

@@ -9,11 +9,14 @@
    </view>
 
    <view class="first-line">
+   <picker bindchange="Category" value="{{index}}" range="{{array}}">
     <view class="form-field category">
       <view class="flex-view{{item.active?' active':''}}" wx:for="{{tabTxt}}" wx:key="" data-index="{{index}}" bindtap="filterTab">
       <text>{{item.text}}</text>
     </view>
     </view>
+    </picker>
+
      <view class="purple">@</view>
      <view bindtap="getPlace" class="form-field name">{{name}}</view>
    </view>
@@ -30,12 +33,12 @@
     <textarea placeholder="address" value="{{address}}" name="address" auto-height />
    </view>
 
-   <button class="submit" form-type="submit" >Create</button>
+   <button class="submit" hover-class='submit-hover' form-type="submit" >Create</button>
  </view>
 </form>
 
 
-    <view class="dropdown-tab-layout" hidden="{{!item.active}}" wx:for="{{tabTxt}}"  wx:for-item="item" data-index="{{index}}" bindtap="filterTabChild">
+    <!-- <view class="dropdown-tab-layout" hidden="{{!item.active}}" wx:for="{{tabTxt}}"  wx:for-item="item" data-index="{{index}}" bindtap="filterTabChild">
         <view class="{{item.type==0?'active':''}}" data-id="0" data-index="0" bindtap="filter">不限</view>
         <view class="{{item.type==item_child.id?'active':''}}" wx:for="{{item.child}}" wx:for-item="item_child" wx:key="" data-id="{{item_child.id}}" data-index="0" data-txt="{{item_child.text}}" bindtap="filter">{{item_child.text}}</view>
-    </view>
+    </view> -->
