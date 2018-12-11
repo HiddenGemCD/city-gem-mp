@@ -21,10 +21,10 @@
       "color": "#888888",
       "list": [
         {
-          "pagePath": "pages/posts/mypost",
-          "text": "Profile",
-          "iconPath": "/commons/assets/icons/user.png",
-          "selectedIconPath": "/commons/assets/icons/user-active.png"
+          "pagePath": "pages/posts/index",
+          "text": "Trending",
+          "iconPath": "/commons/assets/icons/fire-unactive.png",
+          "selectedIconPath": "/commons/assets/icons/fire.png"
         },
         {
           "pagePath": "pages/posts/new",
@@ -33,10 +33,10 @@
           "selectedIconPath": "/commons/assets/icons/add-active.png"
         },
         {
-          "pagePath": "pages/posts/index",
-          "text": "Discover",
-          "iconPath": "/commons/assets/icons/binoculars.png",
-          "selectedIconPath": "/commons/assets/icons/binoculars-active.png"
+          "pagePath": "pages/posts/mypost",
+          "text": "My Posts",
+          "iconPath": "/commons/assets/icons/user.png",
+          "selectedIconPath": "/commons/assets/icons/user-active.png"
         }
       ]
     }

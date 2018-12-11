@@ -95,7 +95,7 @@
           <view class='control-item edit'id='{{post.id}}'bindtap='editPost'>
             Edit
           </view>
-          <view class='control-item delete'id='{{post.id}}'bindtap='deletePost'>
+          <view class='control-item delete 'id='{{post.id}}'bindtap='deletePost'>
             Delete
           </view>
         </view>
