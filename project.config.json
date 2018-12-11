@@ -64,10 +64,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "test page",
+					"id": 4,
+					"name": "share page",
 					"pathName": "pages/share/share",
-					"query": ""
+					"query": "postId=60"
 				},
 				{
 					"id": 5,

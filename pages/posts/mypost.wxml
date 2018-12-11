@@ -39,7 +39,7 @@
   <view   id="{{postsIndex}}"  class="post-container" >
     <view id="{{postsIndex}}" class="post {{flip[postsIndex]?'flipped':''}}" bindtap = "flip">
       <view class="front face {{flip[postsIndex]?'hidden':''}}">
-          <button class="btn-share" open-type="share" ><image class='icon icon-share' src="/commons/assets/icons/share.png" bindtap='share'></image></button>
+          <button id='{{post.id}}' class="btn-share" open-type='share'><image class='icon icon-share' src="/commons/assets/icons/share.png"></image></button>
         <view class="post-content-top">
           <view class="category">{{post.category}}</view> 
           <view class="at_symbol">@</view>
@@ -64,7 +64,7 @@
 
       <!-- post back face -->
       <view class="back face {{flip[postsIndex]?'':'hidden'}}"id="{{postsIndex}}">
-          <button class="btn-share" open-type="share"><image class='icon icon-share' src="/commons/assets/icons/share.png" bindtap='share'></image></button>
+          <button id='{{post.id}}' class="btn-share" open-type="share"><image class='icon icon-share' src="/commons/assets/icons/share.png" bindtap='share'></image></button>
           
         <view class="post-content-top">
           <view class="category">{{post.category}}</view> 
