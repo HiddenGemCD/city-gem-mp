@@ -47,7 +47,8 @@
  flex-wrap: nowrap;
  align-items: center;
  padding-left: 10rpx;
- height: 30px;
+ /* height: 30px; */
+ text-overflow: ellipsis;
 }
 
 .form-field .active image {
@@ -71,6 +72,12 @@
 
 .purple {
  color: #8C4DE8;
+}
+
+.desc {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .desc-box {
