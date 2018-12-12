@@ -84,9 +84,12 @@ Page({
       success(res) {
         page.setData({
           posts: res.data.posts,
+          trending_counts: res.data.trending_counts
         })
       }
     })
+    
+    
   },
 
   selectCategory: function (e) {
