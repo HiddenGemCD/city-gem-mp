@@ -16,8 +16,8 @@ Page({
   },
 
   onLoad: function (options) {
-    const host = 'http://localhost:3000/';
-    // const host = 'https://citygem.wogengapp.cn/';
+    // const host = 'http://localhost:3000/';
+    const host = 'https://citygem.wogengapp.cn/';
     wx.getSetting({
       success(res) {
         if (res.authSetting['scope.userInfo']) {
