@@ -1,17 +1,14 @@
 const app = getApp()
 const myRequest = require('../../lib/api/request');
-
-var QQMapWX = require('../../qqmap-wx-jssdk1.0/qqmap-wx-jssdk.js');
- 
+const QQMapWX = require('../../qqmap-wx-jssdk1.0/qqmap-wx-jssdk.js');
 // 实例化API核心类
-var qqmap = new QQMapWX({
+const qqmap = new QQMapWX({
   key: 'FF7BZ-WGR34-2YSUE-D2L6W-PNY6F-PQFWL' // 必填
 });
  
-
 Page({
+
   data: {
-    // categories: ['Eat', 'Drink', 'Play'],
     cities: [],
     posts: [],
     current_category: '',
@@ -20,9 +17,10 @@ Page({
 
   onLoad: function () {
     let page = this
+    // get and set current user's location....
     wx.getLocation({
       success: function(res) {
-        console.log(res)
+        // console.log(res)
         let latitude = res.latitude
         let longitude = res.longitude
         // 调用接口
@@ -40,23 +38,32 @@ Page({
                 page.setData({
                   current_city: res.data.current_city,
                 })
+                console.log('now current city...')
+                console.log(page.data.current_city)
+                console.log(page.data)
+
+                myRequest.get({
+                  path: "posts",
+                  success(res) {
+                    console.log(res)
+                    page.setData({
+                      posts: res.data.posts,
+                      cities: res.data.cities,
+                      trending_counts: res.data.trending_counts
+                    })
+
+                    // filtering....
+                    page.filtered()
+                  }
+                })  
               }
-            })
+            }) 
           },
         });
       },
     })
-    myRequest.get({  
-      path: "posts",
-      success(res) {
-        page.setData({ 
-          posts: res.data.posts,
-          cities: res.data.cities
-          })
-        console.log(res.data.posts)
-      }
-    })
   },
+  
   newPost: function () {
     wx.navigateTo({
       url: '/pages/posts/new'
@@ -65,14 +72,16 @@ Page({
 
   filtered: function () {
     console.log('filter!')
+    console.log(this.data)
     let page = this
-    // let user_id = app.globalData.userId.id
-    let category = this.data.current_category
-    let city = this.data.current_city
+    let category = page.data.current_category
+    let city = page.data.current_city
+
+    console.log(this.data.posts)
+
     myRequest.get({
       path: "posts?category=" + category + '&city=' + city,
       success(res) {
-        console.log(res)
         page.setData({
           posts: res.data.posts,
         })
@@ -80,23 +89,17 @@ Page({
     })
   },
 
-  // bindPickerCategoryChange: function(e){
-  //   console.log('i am picker')
-  //   let index = e.detail.value
-  //   let current_category = this.data.categories[index]
-  //   this.setData({
-  //     current_category: current_category
-  //   })
-  //   this.filtered()
-  // },
-
   selectCategory: function (e) {
-    console.log(111,'select category')
     let current_category = e.target.id
-    console.log(e)
-    this.setData({
-      current_category: current_category
-    })
+    if (this.data.current_category == current_category){
+      this.setData({
+        current_category: ''
+      })
+    } else {
+      this.setData({
+        current_category: current_category
+      })
+    }
     this.filtered()
   },
 
