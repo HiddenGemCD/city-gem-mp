@@ -17,7 +17,7 @@ Page({
       width: 20,
       height: 30
     }],
-    showMap: false
+    showMap: {}
   },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -50,10 +50,15 @@ Page({
           city_qty: res.data.city_qty,
           cities: res.data.cities
         })
+        let posts = page.data.posts
+        let showMap = page.data.showMap
+        posts.forEach(function (item, index) {
+          console.log(index)
+          showMap[index] = false
+        })
       }
     })
   },
-
   newPost: function () {
     wx.navigateTo({
       url: '/pages/posts/new'
@@ -87,19 +92,7 @@ Page({
     let posts = that.data.posts
     let id = e.currentTarget.id
     let flip = that.data.flip
-
     let newMarkers = that.data.markers
-
-    if (this.data.showMap) {
-      this.setData({ showMap: false })
-
-    } else {
-      setTimeout(function () {
-        console.log(2222, "make timeout for showMap")
-        that.setData({ showMap: true })
-      }, 500)
-    }
-    
     newMarkers[0].latitude = posts[id].latitude
     newMarkers[0].longitude = posts[id].longitude
     if (flip[id]) {
@@ -114,9 +107,35 @@ Page({
     this.setData({
       markers: newMarkers,
       flip: that.data.flip,
-    })
-
+    }) 
+    setTimeout(function () {
+      that.showMap(e)
+    },500)
     
+  },
+
+
+  showMap: function (e) {
+    
+    let that = this
+    let id = e.currentTarget.id
+    let posts = that.data.posts
+    let showMap = this.data.showMap
+    
+    if (showMap[id]) {
+      console.log('hide map')
+      showMap[id] = !showMap[id]
+    }
+    else {
+      console.log('show map')
+      posts.forEach(function (item, index) {
+        showMap[index] = false
+      })
+      showMap[id] = !showMap[id]
+    }
+    this.setData({
+      showMap: that.data.showMap
+    }) 
   },
   // share function
   share: function(e){

@@ -126,33 +126,24 @@
 /* for flip card */
 
 .post-container {
-  /* width: 320px; */
-  /* height: 100px; */
   position: relative;  
   border-radius: 4px;
   perspective: 800px;
 }
 
 .post {
-  /* width: 100%; */
   height: 100%;
-  /* position: absolute; */
   transform-style: preserve-3d;
   transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border-radius: 6px;
-  /* box-shadow: 0 6px 16px rgba(0,0,0,0.15); */
   cursor: pointer;
 }
 
 .face {
-    /* position: absolute; */
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
     border-radius: 6px;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
 }
 .front.hidden {
   display: none;
@@ -172,16 +163,37 @@
 .description {
   margin-top: 15rpx;
 }
+@keyframes show {
+  0% {
+    opacity: 0; }
+  30% {
+    opacity: 0;} 
+  100% {
+    opacity: 1; } 
+  }
 
-
+@-webkit-keyframes show {
+  0% {
+    opacity: 0; }
+  30% {
+    opacity: 0;} 
+  100% {
+    opacity: 1; } 
+  }
 .map {
   height: 100%;
   width: 100%;
   overflow: hidden;
   box-shadow: 0.1px 0.1px 1px;
-      /* transition-property: top, left;
-  transition-duration: 1s, 1s;
-  transition-delay: 0s, 1s; */
+
+}
+.map.show {
+  -webkit-animation: show 2s;
+  animation: show 2s;
+  }
+
+.map.hide {
+  display: none;
 }
 
 .mapspecs {

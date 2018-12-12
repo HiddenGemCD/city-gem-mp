@@ -115,5 +115,11 @@ Page({
       current_city: current_city
     })
     this.filtered()
+  },
+
+  flip: function () {
+    console.log('flip')
   }
+
+
 })
