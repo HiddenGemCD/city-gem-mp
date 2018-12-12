@@ -13,7 +13,7 @@
 
     <view class="status">
       <view class="qty-posts">{{post_qty}} posts in</view>
-      <view class="qty-cities">{{city_qty}} cities</view>
+      <view style='margin-left:4px;' class="qty-cities">{{city_qty}} cities</view>
     </view>
   </view>
 </view>
@@ -89,7 +89,7 @@
         </view>
 
         <view class="map">
-        <map id="map" longitude="{{post.longitude}}" latitude="{{post.latitude}}" scale="14" markers="{{markers}}" bindmarkertap="markertap" show-location class="mapspecs"></map>  
+        <map wx:if='{{flip[postsIndex] && showMap}}' id="map" longitude="{{post.longitude}}" latitude="{{post.latitude}}" scale="14" markers="{{markers}}" bindmarkertap="markertap" show-location class="mapspecs"></map>  
         </view>
         <view class="control">
           <view class='control-item edit'id='{{post.id}}'bindtap='editPost'>

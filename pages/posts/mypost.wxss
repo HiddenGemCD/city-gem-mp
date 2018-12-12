@@ -179,12 +179,17 @@
   width: 100%;
   overflow: hidden;
   box-shadow: 0.1px 0.1px 1px;
-
+      transition-property: top, left;
+  transition-duration: 1s, 1s;
+  transition-delay: 0s, 1s;
 }
 
 .mapspecs {
   width: 100%; 
   height: 150px;
+    transition-property: top, left;
+  transition-duration: 1s, 1s;
+  transition-delay: 0s, 1s;
 }
 
 .control {

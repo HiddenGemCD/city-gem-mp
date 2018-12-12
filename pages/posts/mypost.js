@@ -16,8 +16,8 @@ Page({
       longitude: 121.480010986,
       width: 20,
       height: 30
-    }
-    ],
+    }],
+    showMap: false
   },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -89,6 +89,16 @@ Page({
     let flip = that.data.flip
 
     let newMarkers = that.data.markers
+
+    if (this.data.showMap) {
+      this.setData({ showMap: false })
+
+    } else {
+      setTimeout(function () {
+        console.log(2222, "make timeout for showMap")
+        that.setData({ showMap: true })
+      }, 200)
+    }
     
     newMarkers[0].latitude = posts[id].latitude
     newMarkers[0].longitude = posts[id].longitude
