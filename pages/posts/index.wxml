@@ -10,15 +10,19 @@
   </view>
 
   <!-- tab--all/city -->
-  <view class="tabs flex">
-    <picker bindchange="bindPickerCategoryChange" value="{{categoryIndex}}" range="{{categories}}">
-      <view class="tab" bindtap='filtered'>{{current_category}}</view>
-    </picker>
-
-      <picker bindchange="bindPickerCityChange" value="{{cityIndex}}" range="{{cities}}">
-    <view class="tab">{{current_city}}</view>
-    </picker>
+  <view class='categories'>
+    <view class='category-item eat active' bindtap='selectCategory' id='Eat'>Eat</view>
+    <view class='category-item drink' bindtap='selectCategory' id='Drink'>Drink</view>
+    <view class='category-item play' bindtap='selectCategory' id='Play'>Play</view>
   </view>
+
+  <picker bindchange="bindPickerCityChange" value="{{cityIndex}}" range="{{cities}}">  
+  <view class= 'city'>
+    <image class="city-icon" src='/commons/assets/icons/map-marker.png'></image>
+      <text class='city-text'>{{current_city}}</text>
+    <image class="angle-icon" src='/commons/assets/icons/angle-down.png'></image> 
+  </view>
+  </picker>
 
   <!-- post  -->
   <block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
@@ -29,12 +33,7 @@
           <view class="category">{{post.category}} </view> 
           <view>@</view>
           <view class="name">{{post.name}}</view>
-        </view>
-        <view class="post-content-bottom">
-          <image class="map-marker" src='/commons/assets/icons/map-marker.png'></image>
-          <view class="city">{{post.city.name}}</view>
-        </view>
-        
+        </view>        
       </view>
     </view>
   </block>
