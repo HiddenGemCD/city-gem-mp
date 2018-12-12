@@ -38,13 +38,6 @@
 }
 
 .category-item.active {
-  background:  #8C4DE8;
-  color: white;
-  height: 20px;
-  font-size: 14px;
-  padding: 3px 15px;
-  border-radius: 20px;
-  margin: 5px 10px;
   opacity: 1
 }
 
@@ -53,7 +46,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 15px;
+  margin: 5px;
 }
 .city-icon {
   width: 20px;
@@ -78,40 +71,40 @@
 
 /* ////////////// */
 .flex {
-  justify-content: center;
-  align-items: center;
-}
-
-.tab {
-  border: 1px solid #8C4DE8;
-  margin-top: 20rpx;
-  padding: 5rpx 25rpx;
-  color: #8C4DE8;
-  margin-bottom: 30rpx;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 .post {
-  border: 1px solid #8C4DE8;
+  /* border: 1px solid #8C4DE8; */
   display: flex;
-  margin-bottom: 20rpx;
+  margin-bottom: 30rpx;
+  align-items: center;
+  justify-content: space-between
 }
 .rank {
-  display: flex;
-  align-items: center;
-  font-size: 48px;
+  /* display: inline-block; */
+  font-size: 18px;
   font-weight: border;
-  color: #FF2965;
+  color: white;
   padding : 15rpx;
+  background: #FF2965;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 8px;
+  margin-left: 22px;
 }
 .post-content {
   display: flex;
-  padding: 5rpx;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  color: #FF2965;
 }
 
-.post-content-top {
-  display: flex;
-  font-size: 16px;
+.post-item {
+  display: inline-block;
 }
 .category {
   color: #FF2965;
@@ -122,16 +115,49 @@
 .name {
   margin-left: 10rpx;
 }
-.map-marker {
-  width: 12px;
-  height: 15px;
-  display: inline-block
-}
-/* .city {
-  display: inline-block;
-  margin: 15rpx;
-} */
 
-.hidden {
-  display: none;
+.count {
+  float: right;
+  color: #8C4DE8;
+  padding-right: 10px;
+}
+
+.highranking {
+  background: #FF2965;
+  height: 140rpx;
+}
+.highranking .flex {
+  height: 100%;
+  position: relative;
+}
+.highranking .rank {
+  font-size: 48px;
+  line-height: 48px;
+  font-weight: bolder;
+  position: absolute;
+  margin-left:0;
+}
+
+.highranking .category {
+  color: white;
+  margin-left: 40px;
+}
+.highranking .post-content {
+  color: white;
+}
+.highranking .count {
+  color: white;
+}
+
+.first {
+  margin-left: 10px;
+}
+
+.second {
+  margin-left: 16px;
+}
+
+.third {
+  margin-left: 22px;
+  margin-bottom: 20px;
 }

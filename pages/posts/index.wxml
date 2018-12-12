@@ -1,42 +1,48 @@
 <!--pages/posts/index.wxml-->
-<view class="wrapper">
 
-  <!-- header--trending -->
-  <view class="header">
-    <view class="flex">
-      <image class="icon" src="/commons/assets/icons/fire.png"></image>
-    <text class="header-text">Trending</text>
-    </view>
+
+<!-- header--trending -->
+<view class="header">
+  <view class="flex">
+    <image class="icon" src="/commons/assets/icons/fire.png"></image>
+  <text class="header-text">Trending</text>
   </view>
-
-  <!-- tab--all/city -->
-  <view class='categories'>
-    <view class='category-item eat active' bindtap='selectCategory' id='Eat'>Eat</view>
-    <view class='category-item drink' bindtap='selectCategory' id='Drink'>Drink</view>
-    <view class='category-item play' bindtap='selectCategory' id='Play'>Play</view>
-  </view>
-
-  <picker bindchange="bindPickerCityChange" value="{{cityIndex}}" range="{{cities}}">  
-  <view class= 'city'>
-    <image class="city-icon" src='/commons/assets/icons/map-marker.png'></image>
-      <text class='city-text'>{{current_city}}</text>
-    <image class="angle-icon" src='/commons/assets/icons/angle-down.png'></image> 
-  </view>
-  </picker>
-
-  <!-- post  -->
-  <block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
-    <view class="post ">
-      <view class="rank">{{postsIndex + 1}}</view>
-      <view class="post-content">
-        <view class="post-content-top">
-          <view class="category">{{post.category}} </view> 
-          <view>@</view>
-          <view class="name">{{post.name}}</view>
-        </view>        
-      </view>
-    </view>
-  </block>
 </view>
+
+<!-- tab--all/city -->
+<view class='categories'>
+  <view class="category-item eat {{ current_category=='Eat'? 'active':''}}" bindtap='selectCategory' id='Eat'>Eat</view>
+  <view class="category-item drink {{ current_category=='Drink'? 'active':''}}" bindtap='selectCategory' id='Drink'>Drink</view>
+  <view class="category-item play {{ current_category=='Play'? 'active':''}}" bindtap='selectCategory' id='Play'>Play</view>
+</view>
+
+<picker bindchange="bindPickerCityChange" value="{{cityIndex}}" range="{{cities}}">  
+<view class= 'city'>
+  <image class="city-icon" src='/commons/assets/icons/map-marker.png'></image>
+    <text class='city-text'>{{current_city}}</text>
+  <image class="angle-icon" src='/commons/assets/icons/angle-down.png'></image> 
+</view>
+</picker>
+
+<!-- post  -->
+<block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
+  <view class="post {{postsIndex == 0? 'highranking first':''}} {{postsIndex == 1? 'highranking second':''}} {{postsIndex == 2? 'highranking third':''}}">
+    <view class='flex'>
+    <view class="rank">
+
+        {{postsIndex + 1}}
+    
+    </view>
+    <view class="post-content">
+        <view class="post-item category">{{post.category}} </view> 
+        <view class='post-item'>@</view>
+        <view class="post-item name">{{post.name}}</view>
+    </view>
+    </view>
+    
+    <view class='count'>+{{trending_counts[postsIndex]}}</view> 
+  </view>
+</block>
+
 
 
