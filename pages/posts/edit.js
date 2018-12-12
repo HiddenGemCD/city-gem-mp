@@ -11,9 +11,9 @@ Page({
         'originalText': 'Category',
         'active': false,
         'child': [
-          { 'id': 1, 'text': 'eat' },
-          { 'id': 2, 'text': 'drink' },
-          { 'id': 3, 'text': 'play' }
+          { 'id': 1, 'text': 'Eat' },
+          { 'id': 2, 'text': 'Drink' },
+          { 'id': 3, 'text': 'Play' }
         ],
         'type': 0
       }
