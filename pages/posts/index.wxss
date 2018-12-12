@@ -26,19 +26,22 @@
 }
 
 .category-item {
-  background:  #8C4DE8;
-  color: white;
+  background:  white;
+  color: #8C4DE8;
   height: 20px;
   font-size: 14px;
   line-height: 20px; 
   padding: 3px 15px;
-  border-radius: 20px;
+  border-radius: 5px;
   margin: 5px 10px;
-  opacity: 0.6
+  opacity: 0.6;
+  border: 1px solid #8C4DE8;
 }
 
 .category-item.active {
-  opacity: 1
+  opacity: 1;
+  background: #8C4DE8;
+  color: white;
 }
 
 /* city */
