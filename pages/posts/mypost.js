@@ -3,10 +3,10 @@ const myRequest = require('../../lib/api/request');
 
 Page({
   data: {
-    categories: ['Eat', 'Drink', 'Play'],
+    categories: ['All Categories','Eat', 'Drink', 'Play'],
     cities: [],
-    current_category: 'All',
-    current_city: 'City',
+    current_category: 'All Categories',
+    current_city: 'All City',
     posts: [],
     flip: {},
     markers: [{
