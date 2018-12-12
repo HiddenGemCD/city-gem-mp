@@ -1,6 +1,6 @@
 <!--pages/share/share.wxml-->
 <view class='wrapper'>
-  <view class='header'>This is a nive place recommemded by your friend, {{shared_by.name}}</view>
+  <view class='header'>This is a nice place recommended by your friend, {{shared_by.name}}</view>
 
   <view class='post'>
   <image class='avatar' src='{{shared_by.avatar}}'></image>

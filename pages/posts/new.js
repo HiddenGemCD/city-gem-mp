@@ -5,7 +5,7 @@ Page({
   data: {
     categories: ['Eat', 'Drink', 'Play'],
     current_category: 'Category',
-    name: 'Choose Location',
+    name: 'Select Location',
     array: ['Eat', 'Drink', 'Play'],
     index: 0,
     // tabTxt: [

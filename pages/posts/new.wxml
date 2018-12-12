@@ -1,20 +1,21 @@
 <form bindsubmit="bindSubmit">
  <view class="container">
-   <view class="top">
-     <view class="form-title">Create Card</view>
-   </view>
+   
+     <view class="form-title">CREATE GEM</view>
+  
    <view class="form-subtitle">
-     <view>Make a note about your favorite places</view>
-     <view>Share it with friends on WeChat</view>
+     <view>Don't be greedy!</view>
+     <view>Share it with your friends!</view>
    </view>
 
    <view class="first-line">
    <picker bindchange="bindPickerCategoryChange" value="{{categoryIndex}}" range="{{categories}}">
-    <view class="form-field category">
+    <view class="category">
       <view>{{current_category}}</view>
       <!-- <view class="flex-view{{item.active?' active':''}}" wx:for="{{tabTxt}}" wx:key="" data-index="{{index}}" bindtap="filterTab">
       <text>{{current_category}}</text>
     </view> -->
+      <image class="angle-icon"             src='/commons/assets/icons/angle-down.png'></image> 
     </view>
     </picker>
 
@@ -22,12 +23,12 @@
      <view bindtap="getPlace" class="form-field name">{{name}}</view>
    </view>
 
-  <view wx:if="{{address}}" class="form-field">
+  <view wx:if="{{address}}" class="address">
     <view>{{address}}</view>
    </view>
    
 
-    <view style='border:1px solid #8C4DE8; width:620rpx; display:flex; padding: 30rpx;'>
+    <view class='desc'>
       <view>
      <textarea style='width:600rpx;' placeholder="I recommend this because..."  name="description"/>
       </view>
@@ -36,12 +37,12 @@
      
   
    <view class="form-field">
-    <textarea placeholder="put tags separted with ," name="tagstring" auto-height />
+    <textarea placeholder="Enter tags separted with ," name="tagstring" auto-height />
    </view>
    
   
 
-   <button class="submit" hover-class='submit-hover' form-type="submit" >Create</button>
+   <button class="submit" hover-class='submit-hover' form-type="submit" >ADD GEM</button>
  </view>
 </form>
 

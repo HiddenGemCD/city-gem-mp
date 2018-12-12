@@ -97,7 +97,7 @@ Page({
       setTimeout(function () {
         console.log(2222, "make timeout for showMap")
         that.setData({ showMap: true })
-      }, 200)
+      }, 500)
     }
     
     newMarkers[0].latitude = posts[id].latitude
