@@ -4,24 +4,28 @@ const myRequest = require('../../lib/api/request');
 
 Page({
   data: {
-    name: 'Choose Location',
-    tabTxt: [
-      {
-        'text': 'Category',
-        'originalText': 'Category',
-        'active': false,
-        'child': [
-          { 'id': 1, 'text': 'Eat' },
-          { 'id': 2, 'text': 'Drink' },
-          { 'id': 3, 'text': 'Play' }
-        ],
-        'type': 0
-      }
-    ],
+    categories: ['Eat', 'Drink', 'Play'],
+    current_category: 'Category',
+    name: 'Select Location',
+    array: ['Eat', 'Drink', 'Play'],
+    index: 0,
+    // tabTxt: [
+    //   {
+    //     'text': 'Category',
+    //     'originalText': 'Category',
+    //     'active': false,
+    //     'child': [
+    //       { 'id': 1, 'text': 'Eat' },
+    //       { 'id': 2, 'text': 'Drink' },
+    //       { 'id': 3, 'text': 'Play' }
+    //     ],
+    //     'type': 0
+    //   }
+    // ],
     searchParam: []
   },
   onLoad: function (e) {
-    console.log(this.data.tabTxt.text)
+    // console.log(this.data.tabTxt.text)
     let page = this;
     page.setData({
       post_id: e.id,
@@ -35,8 +39,9 @@ Page({
     myRequest.get({
       path: 'posts/' + post_id,
       success(res) {
-        console.log(res)
+        console.log(111111, res)
         page.setData({
+          current_category: res.data.post.category,
           name: res.data.post.name,
           description: res.data.post.description,
           tagstring: res.data.post.tagstring,
