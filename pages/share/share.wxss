@@ -94,7 +94,9 @@
   height: 100%;
   width: 100%;
   overflow: hidden;
+  
 }
+
 
 .btn-description {
   font-size: 14px;
@@ -135,4 +137,19 @@ button::after{ border: none; }
 }
 .message {
  color: grey;
+}
+
+.btn-show-map {
+  padding: 0 10px;
+  border: none;
+  background: #8C4DE8;
+  color: white;
+  margin-bottom: 10px;
+  display:flex;
+  justify-content: center;
+  width: 43vw;
+  font-weight: bold;
+  border-radius: 15rpx;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.6);
+  margin-top: 10px;
 }

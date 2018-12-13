@@ -35,12 +35,12 @@
     </view>
   </view>
 
-  <view class="map" bindtap='openMap' data-longitude="{{post.longitude}}" data-latitude="{{post.latitude}}">
+  <view  class="map">
   <map id="map" longitude="{{post.longitude}}" latitude="{{post.latitude}}" scale="14" markers="{{markers}}" bindmarkertap="markertap" show-location style="width: 100%; height: 200px;"></map>  
+      <button class='btn btn-show-map' bindtap='openMap'data-longitude="{{post.longitude}}" data-latitude="{{post.latitude}}">Route</button>
   </view>
-
+  
   </view>
-
     <view class='btn-description'>Like this gem?</view>
 </view>
   

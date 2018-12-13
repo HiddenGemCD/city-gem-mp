@@ -109,6 +109,7 @@ Click below to add a card!</view>
         <!-- map -->
 
         <view class="control">
+        <view class='control-item show-map' bindtap='openMap'data-longitude="{{post.longitude}}" data-latitude="{{post.latitude}}">Route</view>
           <view class='control-item edit'id='{{post.id}}'bindtap='editPost'>
             Edit
           </view>

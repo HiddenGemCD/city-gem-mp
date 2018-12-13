@@ -231,6 +231,11 @@
   width: 10px;
   height: 10px;
 }
+
+.show-map {
+  background: #8C4DE8;
+  color: white;
+}
 .edit {
   color: #FF2965;
 }
@@ -254,3 +259,4 @@ button::after{ border: none; }
   width: 20px;
   height: 20px;
 }
+
