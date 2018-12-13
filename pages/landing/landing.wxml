@@ -14,6 +14,5 @@
            <button style='margin-left:auto; margin-right:auto;' class='enter' hover-class='button-hover' bindtap='goNext'>Enter</button>    
       </view>
   </view>
- </view>
 </view>
 
