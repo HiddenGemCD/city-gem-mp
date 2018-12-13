@@ -64,6 +64,7 @@
   justify-content: center;
   color: #FF2965;
   font-size: 20px;
+  transition-delay: 1s;
 }
 
 .post {

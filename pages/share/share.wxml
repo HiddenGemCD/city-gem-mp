@@ -1,6 +1,6 @@
 <!--pages/share/share.wxml-->
 <view wx:if='{{post}}' class='wrapper'>
-  <view class='header'>This is a nice place recommended by your friend, {{shared_by.name}}</view>
+  <view class='header'>{{shared_by.name}} has shared this gem with you!</view>
 
   <view class='post'>
   <image class='avatar' src='{{shared_by.avatar}}'></image>
@@ -12,12 +12,14 @@
   </view>
 
   <!-- <view class="description">{{post.description}}</view> -->
-  <block class="tags" wx:for="{{post.tags}}" wx:for-item="tag" wx:for-index="tagsIndex" wx:key="tags">
-    <view class="tag">{{tag}}</view>
-  </block>
 
   <view class="description">
     {{post.description}}
+  </view>
+
+    <view style='padding-top: 5px;'><block class="tags" wx:for="{{post.tag_list}}" wx:for-item="tag" wx:for-index="tagsIndex" wx:key="tags">
+    <view class="tag">{{tag}}</view>
+  </block>
   </view>
 
   <view class="post-content-bottom">
@@ -32,12 +34,12 @@
   </view>
 
   </view>
-  <view class='flex'>
+
+    <view class='btn-description'>Like this gem?</view>
+</view>
   
-  <button class='btn btn-enter' bindtap='goToLanding'>Enter</button>
-  <view class='btn-description'>To create and share places with friends</view>
-</view>
-</view>
+  <button class='btn btn-enter' hover-class='button-hover' bindtap='goToLanding'>Discover More</button>
+
 
 
 <!-- if friend delete the card -->
