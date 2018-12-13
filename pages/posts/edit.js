@@ -37,6 +37,8 @@ Page({
     let page = this;
     const user_id = this.data.user_id;
     const post_id = this.data.post_id;
+    console.log(user_id)
+    console.log(post_id)
     wx.showToast({ title: 'Sending...', icon: 'loading', duration: 1000     })
     myRequest.put({
       path: 'users/' + user_id + '/posts/' + post_id,
@@ -47,7 +49,7 @@ Page({
           address: page.data.address,
           latitude: page.data.latitude,
           longitude: page.data.longitude,
-          category: page.data.searchParam[0],
+          category: page.data.current_category,
           tagstring: e.detail.value.tagstring
         }
       },
@@ -61,6 +63,7 @@ Page({
       })
     }, 1000)
   },
+  
   openSetting: function () {
     wx.getSetting({
       success(res) {
@@ -68,8 +71,17 @@ Page({
       }
     })
   },
+  
   getPlace: function () {
     var page = this;
     app.getPermission(page);
+  },
+
+  bindPickerCategoryChange: function (e) {
+    let index = e.detail.value
+    let current_category = this.data.categories[index]
+    this.setData({
+      current_category: current_category
+    })
   },
 })

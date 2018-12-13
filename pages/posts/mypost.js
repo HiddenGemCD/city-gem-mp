@@ -4,9 +4,9 @@ const myRequest = require('../../lib/api/request');
 Page({
   data: {
     categories: ['All Categories','Eat', 'Drink', 'Play'],
-    cities: [],
     current_category: 'All Categories',
     current_city: 'All Cities',
+    cities: [],
     posts: [],
     flip: {},
     markers: [{
@@ -44,6 +44,7 @@ Page({
 
     myRequest.get({
       path: "posts?user_id=" + this.data.user_id,
+
       success(res) {
         page.setData({
           posts: res.data.posts,
@@ -51,6 +52,7 @@ Page({
           city_qty: res.data.city_qty,
           cities: res.data.cities
         })
+
         let posts = page.data.posts
         let showMap = page.data.showMap
         posts.forEach(function (item, index) {
@@ -168,6 +170,7 @@ Page({
   bindPickerCityChange: function (e) {
 
     let index = e.detail.value
+    console.log(index)
     let current_city = this.data.cities[index]
     this.setData({
       current_city: current_city

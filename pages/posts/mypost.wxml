@@ -1,4 +1,3 @@
-
 <!--pages/posts/mypost.wxml-->
 <view class="wrapper">
 
@@ -102,9 +101,13 @@ Click below to add a card!</view>
           </view>
         </view>
 
-        <view class="map" bindtap='openMap' data-longitude="{{post.longitude}}" data-latitude="{{post.latitude}}">
+        <!-- map -->
+        <view class="map" bindtap='openMap' 
+        data-longitude="{{post.longitude}}" data-latitude="{{post.latitude}}">
         <map wx:if='{{flip[postsIndex] && showMap[postsIndex]}}' id="map" longitude="{{post.longitude}}" latitude="{{post.latitude}}" scale="14" markers="{{markers}}" bindmarkertap="markertap" show-location class="mapspecs"></map>  
         </view>
+        <!-- map -->
+
         <view class="control">
           <view class='control-item edit'id='{{post.id}}'bindtap='editPost'>
             Edit

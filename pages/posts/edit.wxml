@@ -24,14 +24,13 @@
 
     <view class='desc'>
       <view>
-     <textarea style='width:600rpx;' placeholder="I recommend this because..."  name="description"/>
+     <textarea style='width:600rpx;' placeholder="I recommend this because..."  name="description" value="{{description}}" />
       </view>
-    
     </view>
      
   
    <view class="form-field">
-    <textarea placeholder="Enter tags separted with ," name="tagstring" auto-height />
+    <textarea placeholder="Enter tags separted with ," name="tagstring" value="{{tagstring}}" auto-height />
    </view>
    
   
