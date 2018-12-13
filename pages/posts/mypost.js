@@ -6,7 +6,7 @@ Page({
     categories: ['All Categories','Eat', 'Drink', 'Play'],
     cities: [],
     current_category: 'All Categories',
-    current_city: 'All City',
+    current_city: 'All Cities',
     posts: [],
     flip: {},
     markers: [{
@@ -27,10 +27,10 @@ Page({
   },
   onShareAppMessage: function (e) {
     return {
-      title: 'A nice place recoomended by your friend',
-      desc: 'Please check it out!',
+      title: "Hey! I'd like to share a gem with you!",
+      desc: 'Check it out!',
       path: '/pages/share/share?postId=' + e.target.id,
-      imageUrl: '/images/logo.png'
+      imageUrl: '/commons/assets/icons/share-card.jpg'
     }
   },
   onLoad: function (options) {

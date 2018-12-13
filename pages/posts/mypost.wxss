@@ -59,6 +59,13 @@
   margin-left: 10rpx;
 }
 
+.no-post {
+  display: flex;
+  justify-content: center;
+  color: #FF2965;
+  font-size: 20px;
+}
+
 .post {
   padding: 15rpx;
   margin-bottom: 30rpx;
@@ -137,6 +144,7 @@
   transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border-radius: 6px;
   cursor: pointer;
+  background-color: white;
 }
 
 .face {

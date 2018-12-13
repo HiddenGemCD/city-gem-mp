@@ -12,8 +12,10 @@
     <view class="line"></view>
 
     <view class="status">
-      <view class="qty-posts">{{post_qty}} posts in</view>
-      <view style='margin-left:4px;' class="qty-cities">{{city_qty}} cities</view>
+      <view wx:if='{{posts.length !== 1}}' class="qty-posts">{{post_qty}} Posts in</view>
+      <view wx:if='{{posts.length == 1}}' class="qty-posts">{{post_qty}} Post in</view>
+      <view wx:if='{{posts.length !== 1}}' style='margin-left:4px;' class="qty-cities">{{city_qty}} Cities</view>
+      <view wx:if='{{posts.length == 1}}' style='margin-left:4px;' class="qty-cities">{{city_qty}} City</view>
     </view>
   </view>
 </view>
@@ -31,6 +33,18 @@
 
   
 </view>
+
+<!-- No card -->
+<view wx:if='{{posts.length == 0}}' class='no-post'>
+You have no cards...</view> 
+
+  <view style='padding-top:70rpx;'/>
+
+
+<view wx:if='{{posts.length == 0}}' class='no-post'>
+Click below to add a card!</view> 
+
+<!-- No card -->
 
 
 <!-- post  -->
