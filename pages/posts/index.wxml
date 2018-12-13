@@ -1,6 +1,4 @@
 <!--pages/posts/index.wxml-->
-
-
 <!-- header--trending -->
 <view class="header">
   <view class="flex">
@@ -26,7 +24,7 @@
 
 <!-- post  -->
 <block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
-  <view class="post {{postsIndex == 0? 'highranking first':''}} {{postsIndex == 1? 'highranking second':''}} {{postsIndex == 2? 'highranking third':''}}">
+  <view class="post {{postsIndex == 0? 'highranking first':''}} {{postsIndex == 1? 'highranking second':''}} {{postsIndex == 2? 'highranking third':''}}" bindtap='flip' >
     <view class='flex'>
     <view class="rank">
 
