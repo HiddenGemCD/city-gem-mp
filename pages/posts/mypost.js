@@ -19,12 +19,13 @@ Page({
     }],
     showMap: {}
   },
+
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value
     })
   },
+
   onShareAppMessage: function (e) {
     return {
       title: "Hey! I'd like to share a gem with you!",
@@ -33,14 +34,14 @@ Page({
       imageUrl: '/commons/assets/icons/share-card.jpg'
     }
   },
-  onLoad: function (options) {
 
-    // console.log(this.data.markers)
-    // console.log(app.globalData.userId.id)
+  onLoad: function (options) {
     let page = this
+
     this.setData({
       user_id: app.globalData.userId.id
     })
+
     myRequest.get({
       path: "posts?user_id=" + this.data.user_id,
       success(res) {
@@ -57,19 +58,17 @@ Page({
           showMap[index] = false
         })
       }
+
     })
   },
-  newPost: function () {
-    wx.navigateTo({
-      url: '/pages/posts/new'
-    })
-  },
+
   editPost: function (e) {
     const post_id = e.target.id;
     wx.navigateTo({
       url: '/pages/posts/edit?id=' + post_id
     })
   },
+
   deletePost: function (e) {
     console.log(e.target)
     const post_id = e.target.id;
@@ -83,9 +82,7 @@ Page({
       }
     })
   },
-  includePoints: function () {
 
-  },
   flip: function (e) {
     console.log('flip')
     let that = this
@@ -111,23 +108,21 @@ Page({
     setTimeout(function () {
       that.showMap(e)
     },500)
-    
   },
 
-
   showMap: function (e) {
-    
+
     let that = this
     let id = e.currentTarget.id
     let posts = that.data.posts
     let showMap = this.data.showMap
     
     if (showMap[id]) {
-      console.log('hide map')
+      // console.log('hide map')
       showMap[id] = !showMap[id]
     }
     else {
-      console.log('show map')
+      // console.log('show map')
       posts.forEach(function (item, index) {
         showMap[index] = false
       })
@@ -137,26 +132,17 @@ Page({
       showMap: that.data.showMap
     }) 
   },
-  // share function
-  share: function(e){
-    console.log(e)
-    console.log("share")
-    wx.navigateTo({
-      url: '/pages/share/share?postId=' + e.target.id,
-    })
-    // this.onShareAppMessage
-  },
 
   // filtered
   filtered: function() {
-    // console.log(e)
+
     let page = this
     let user_id = app.globalData.userId.id
     let category = this.data.current_category
     let city = this.data.current_city
     
     myRequest.get({
-      // path: "posts?user_id =" + user_id,
+
       path: "posts?category=" + category + '&city=' + city + '&user_id=' + user_id,
 
       success(res) {
@@ -169,11 +155,10 @@ Page({
   },
 
   bindPickerCategoryChange: function (e) {
-    console.log('i am picker')
-    console.log(e)
+
     let index = e.detail.value
     let current_category = this.data.categories[index]
-    console.log(current_category)
+    // console.log(current_category)
     this.setData({
       current_category: current_category
     })
@@ -181,13 +166,24 @@ Page({
   },
 
   bindPickerCityChange: function (e) {
-    console.log(e)
-    console.log('i am picker')
+
     let index = e.detail.value
     let current_city = this.data.cities[index]
     this.setData({
       current_city: current_city
     })
     this.filtered()
+  }, 
+
+  // show map when click
+  openMap: function (e) {
+    console.log(e)
+    let latitude = e.currentTarget.dataset.latitude
+    let longitude = e.currentTarget.dataset.longitude
+    wx.openLocation({
+      latitude: latitude,
+      longitude: longitude,
+      scale: 30
+    })
   }
 })

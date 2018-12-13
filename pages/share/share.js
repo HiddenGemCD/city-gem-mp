@@ -91,5 +91,17 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
+  },
+
+  // show map when click
+  openMap: function (e) {
+    console.log(e)
+    let latitude = e.currentTarget.dataset.latitude
+    let longitude = e.currentTarget.dataset.longitude
+    wx.openLocation({
+      latitude: latitude,
+      longitude: longitude,
+      scale: 30
+    })
   }
 })

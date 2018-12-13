@@ -1,9 +1,8 @@
 const app = getApp()
 const myRequest = require('../../lib/api/request');
 const QQMapWX = require('../../qqmap-wx-jssdk1.0/qqmap-wx-jssdk.js');
-// 实例化API核心类
 const qqmap = new QQMapWX({
-  key: 'FF7BZ-WGR34-2YSUE-D2L6W-PNY6F-PQFWL' // 必填
+  key: 'FF7BZ-WGR34-2YSUE-D2L6W-PNY6F-PQFWL'
 });
  
 Page({
@@ -17,13 +16,12 @@ Page({
 
   onLoad: function () {
     let page = this
-    // get and set current user's location....
+// get and set current user's location and use qqmap api to get current city
     wx.getLocation({
       success: function(res) {
-        // console.log(res)
         let latitude = res.latitude
         let longitude = res.longitude
-        // 调用接口
+
         qqmap.reverseGeocoder({
           location: {
             latitude: latitude,
@@ -32,6 +30,8 @@ Page({
           success: function (res) {
             console.log(res.result.ad_info.city);
             let current_city = res.result.ad_info.city;
+
+// convert city name to english
             myRequest.get({
               path: "get_current_city?current_city=" + current_city,
               success(res) {
@@ -42,6 +42,7 @@ Page({
                 console.log(page.data.current_city)
                 console.log(page.data)
 
+//get all posts, city list, trending data
                 myRequest.get({
                   path: "posts",
                   success(res) {
@@ -52,7 +53,7 @@ Page({
                       trending_counts: res.data.trending_counts
                     })
 
-                    // filtering....
+// filter posts based on current location
                     page.filtered()
                   }
                 })  
@@ -63,21 +64,14 @@ Page({
       },
     })
   },
-  
-  newPost: function () {
-    wx.navigateTo({
-      url: '/pages/posts/new'
-    })
-  },
 
+// filter with category and location
   filtered: function () {
-    console.log('filter!')
-    console.log(this.data)
+    console.log('filter with category and location')
+
     let page = this
     let category = page.data.current_category
     let city = page.data.current_city
-
-    console.log(this.data.posts)
 
     myRequest.get({
       path: "posts?category=" + category + '&city=' + city,
@@ -88,10 +82,9 @@ Page({
         })
       }
     })
-    
-    
   },
 
+// select catgory and filter
   selectCategory: function (e) {
     let current_category = e.target.id
     if (this.data.current_category == current_category){
@@ -106,9 +99,8 @@ Page({
     this.filtered()
   },
 
+// select city and filter
   bindPickerCityChange: function (e) {
-    console.log(e)
-    console.log('i am picker')
     let index = e.detail.value
     let current_city = this.data.cities[index]
     this.setData({
@@ -117,9 +109,15 @@ Page({
     this.filtered()
   },
 
-  flip: function () {
-    console.log('flip')
+// show map when click
+  showMap: function(e) {
+    console.log(e)
+    let latitude = e.currentTarget.dataset.latitude
+    let longitude = e.currentTarget.dataset.longitude
+    wx.openLocation({
+      latitude: latitude,
+      longitude: longitude,
+      scale: 30
+    })
   }
-
-
 })
