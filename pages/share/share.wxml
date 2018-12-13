@@ -40,13 +40,14 @@
     <view class='btn-description'>Like this gem?</view>
 </view>
   
-  <button class='btn btn-enter' hover-class='button-hover' bindtap='goToLanding'>Discover More</button>
+
 
 
 
 <!-- if friend delete the card -->
 <view class='message-container'>
   <view wx:if='{{!post}}' class='message'>
-    - your friend not reccomend this place anymore -
+    Your friend not reccomend this place anymore!
   </view>
 </view>
+<button class='btn btn-enter' hover-class='button-hover' bindtap='goToLanding'>Discover More</button>
