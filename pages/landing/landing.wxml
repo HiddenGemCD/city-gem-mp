@@ -1,15 +1,19 @@
-<view class='background' style="background-image: url('/commons/assets/icons/landing-bg.png');">
-  <view style='padding-top:180rpx;'/>
+<view class='background' style="background-image: url('http://lc-khax1hop.cn-n1.lcfile.com/d4c5ac53e139e5088d61.png');">
+  <view style='padding-top:70rpx;'/>
 
   <!-- logo -->
   <image src='/commons/assets/icons/logo.png' class='logo'></image>
 
   <!-- slogan -->
-  <view class='slogan'>Share your gems to friends</view>
-
-  <view style='padding-top:360rpx;'/>
+  <!-- <view class='slogan'>Share your gems to friends</view> -->
 
   <!-- enter button -->
-  <button class='enter' hover-class='button-hover' bindtap='goNext' >Enter</button>
-  
+
+  <view style='position:fixed; bottom:60rpx;'>
+      <view style='width:100vw;'>
+           <button style='margin-left:auto; margin-right:auto;' class='enter' hover-class='button-hover' bindtap='goNext'>Enter</button>    
+      </view>
+  </view>
+ </view>
 </view>
+

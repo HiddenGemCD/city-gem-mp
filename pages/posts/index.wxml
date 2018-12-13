@@ -14,6 +14,8 @@
   <view class="category-item play {{ current_category=='Play'? 'active':''}}" bindtap='selectCategory' id='Play'>Play</view>
 </view>
 
+<view style='padding-top:40rpx;'/>
+
 <picker bindchange="bindPickerCityChange" value="{{cityIndex}}" range="{{cities}}">  
 <view class= 'city'>
   <image class="city-icon" src='/commons/assets/icons/map-marker.png'></image>
@@ -21,6 +23,10 @@
   <image class="angle-icon" src='/commons/assets/icons/angle-down.png'></image> 
 </view>
 </picker>
+
+
+<view style='padding-top:40rpx;'/>
+
 
 <!-- post  -->
 <block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">

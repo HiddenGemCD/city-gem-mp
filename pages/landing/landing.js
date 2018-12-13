@@ -18,6 +18,12 @@ Page({
   onLoad: function (options) {
     // const host = 'http://localhost:3000/';
     const host = 'https://citygem.wogengapp.cn/';
+
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#fff2e7',
+    })
+
     wx.getSetting({
       success(res) {
         if (res.authSetting['scope.userInfo']) {
