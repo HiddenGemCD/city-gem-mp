@@ -24,13 +24,11 @@
 
 <!-- post  -->
 <block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
-  <view class="post {{postsIndex == 0? 'highranking first':''}} {{postsIndex == 1? 'highranking second':''}} {{postsIndex == 2? 'highranking third':''}}">
+  <view class="post {{postsIndex == 0? 'highranking first':''}} {{postsIndex == 1? 'highranking second':''}} {{postsIndex == 2? 'highranking third':''}}" bindtap='showMap' data-latitude='{{post.latitude}}' data-longitude='{{post.longitude}}' >
     <view class='flex'>
-    <view class="rank">
-
-        {{postsIndex + 1}}
-    
-    </view>
+      <view class="rank">
+          {{postsIndex + 1}}
+      </view>
     <view class="post-content">
         <view class="post-item category">{{post.category}} </view> 
         <view class='post-item'>@</view>

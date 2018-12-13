@@ -107,5 +107,17 @@ Page({
       current_city: current_city
     })
     this.filtered()
+  },
+
+// show map when click
+  showMap: function(e) {
+    console.log(e)
+    let latitude = e.currentTarget.dataset.latitude
+    let longitude = e.currentTarget.dataset.longitude
+    wx.openLocation({
+      latitude: latitude,
+      longitude: longitude,
+      scale: 30
+    })
   }
 })
