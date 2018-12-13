@@ -1,9 +1,11 @@
 /* pages/share/share.wxss */
 
 .header {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   font-weight: bolder;
-  color: #8C4DE8
+  color: #FF2965;
+  text-align: center;
+
 }
 
 
@@ -94,14 +96,29 @@
 .btn-description {
   font-size: 14px;
   color: grey;
+  padding-top: 30rpx;
+  padding-bottom: 10rpx;
+  text-align: center;
 }
 button::after{ border: none; }
+
 .btn-enter {
-  padding: 0 10px;
+  padding: 0 3px;
   border: none;
   background: #FF2965;
   color: white;
   margin-bottom: 10px;
+  display:flex;
+  justify-content: center;
+  width: 43vw;
+  font-weight: bold;
+  border-radius: 15rpx;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+.button-hover {
+ background-color: rgba(255, 45, 90, 0.733);
+ color: #e9e9e9;
 }
 
 
