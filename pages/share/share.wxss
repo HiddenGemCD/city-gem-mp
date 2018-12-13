@@ -103,3 +103,15 @@ button::after{ border: none; }
   color: white;
   margin-bottom: 10px;
 }
+
+
+.message-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.message {
+ color: grey;
+}

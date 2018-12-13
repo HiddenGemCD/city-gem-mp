@@ -1,5 +1,5 @@
 <!--pages/share/share.wxml-->
-<view class='wrapper'>
+<view wx:if='{{post}}' class='wrapper'>
   <view class='header'>This is a nice place recommended by your friend, {{shared_by.name}}</view>
 
   <view class='post'>
@@ -37,5 +37,12 @@
   <button class='btn btn-enter' bindtap='goToLanding'>Enter</button>
   <view class='btn-description'>To create and share places with friends</view>
 </view>
+</view>
 
+
+<!-- if friend delete the card -->
+<view class='message-container'>
+  <view wx:if='{{!post}}' class='message'>
+    - your friend not reccomend this place anymore -
+  </view>
 </view>
