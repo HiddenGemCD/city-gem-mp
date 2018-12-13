@@ -99,7 +99,6 @@ Page({
       let validate = null
       page.setData({
         noTagMessage: 'Please add tags.',
-        validate: validate
       })
     } else {
       page.setData({
@@ -107,7 +106,7 @@ Page({
       })
     }
 
-    if ( page.data.noCategoryMessage || page.data.noDescriptionMessage || page.data.noLocationMessage || page.data.noCategoryMessage ) {
+    if ( page.data.noCategoryMessage || page.data.noDescriptionMessage || page.data.noLocationMessage || page.data.noTagMessage ) {
       page.setData({
         validate: false
       })
