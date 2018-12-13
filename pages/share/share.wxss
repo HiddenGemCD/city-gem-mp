@@ -5,12 +5,14 @@
   font-weight: bolder;
   color: #FF2965;
   text-align: center;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
 .post {
-  padding: 15rpx;
+  padding: 20rpx;
   margin-bottom: 30rpx;
   box-shadow: 0 2px 4px rgba(0,0,0,0.4);
   position: relative
@@ -20,10 +22,11 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  position: absolute;
+  /* position: absolute; */
   right: 0;
   top: 0;
-  transform: translateY(-50%);
+  margin-bottom: 15px;
+  /* transform: translateY(-50%); */
 }
 
 .post-content-top {

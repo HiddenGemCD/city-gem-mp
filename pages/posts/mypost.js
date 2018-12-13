@@ -17,7 +17,8 @@ Page({
       width: 20,
       height: 30
     }],
-    showMap: {}
+    showMap: {},
+    noCards: false
   },
 
   bindPickerChange: function (e) {
@@ -46,6 +47,7 @@ Page({
       path: "posts?user_id=" + this.data.user_id,
 
       success(res) {
+        console.log(res)
         page.setData({
           posts: res.data.posts,
           post_qty: res.data.post_qty,
@@ -53,10 +55,16 @@ Page({
           cities: res.data.cities
         })
 
+        if (page.data.post_qty == 0) {
+          console.log("no cards")
+          page.setData({
+            noCards: true
+          })
+        }
+
         let posts = page.data.posts
         let showMap = page.data.showMap
         posts.forEach(function (item, index) {
-          console.log(index)
           showMap[index] = false
         })
       }

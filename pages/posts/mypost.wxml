@@ -34,7 +34,7 @@
 </view>
 
 <!-- No card -->
-<view wx:if='{{posts.length == 0}}' class='no-post'>
+<view wx:if='{{noCards}}' class='no-post'>
 You have no cards...</view> 
 
   <view style='padding-top:70rpx;'/>

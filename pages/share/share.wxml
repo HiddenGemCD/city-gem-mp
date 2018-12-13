@@ -1,11 +1,15 @@
 <!--pages/share/share.wxml-->
 <view wx:if='{{post}}' class='wrapper'>
-  <view class='header'>{{shared_by.name}} has shared this gem with you!</view>
 
-  <view style='padding-top:80rpx;'/>
+  
+  <view class='header'>
+  <image class='avatar' src='{{shared_by.avatar}}'></image>
+  {{shared_by.name}} has shared this gem with you!
+  </view>
+  
+  <!-- <view style='padding-top:80rpx;'/> -->
 
   <view class='post'>
-  <image class='avatar' src='{{shared_by.avatar}}'></image>
   <view class="post-content-top">
     
     <view class="category">{{post.category}}</view> 
@@ -45,8 +49,8 @@
 
 
 <!-- if friend delete the card -->
-<view class='message-container'>
-  <view wx:if='{{!post}}' class='message'>
+<view wx:if='{{cardDeleted}}' class='message-container'>
+  <view  class='message'>
     Your friend not reccomend this place anymore!
   </view>
 </view>

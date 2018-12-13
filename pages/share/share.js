@@ -10,7 +10,8 @@ Page({
       latitude: 31.236125946,
       longitude: 121.480010986,
       width: 15,
-      height: 20
+      height: 20,
+      cardDeleted: false
     }
     ],
   },
@@ -25,11 +26,18 @@ Page({
       path: "posts/" + page.data.postId,
       success(res) {
         console.log(res)
-        page.setData({
-          post: res.data.post,
-          city: res.data.city,
-          shared_by: res.data.shared_by
-        })
+        if (res.statusCode < 400) {
+          page.setData({
+            post: res.data.post,
+            city: res.data.city,
+            shared_by: res.data.shared_by
+          })
+        } else {
+          page.setData({
+            cardDeleted: true
+          })
+        }
+
         let newMarkers = page.data.markers
         newMarkers[0].latitude = page.data.post.latitude
         newMarkers[0].longitude = page.data.post.longitude
