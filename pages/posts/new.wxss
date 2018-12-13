@@ -209,3 +209,7 @@ border-radius: 20rpx;
   background-color:#ffffff;
   
 }
+
+.message {
+  color: red
+}

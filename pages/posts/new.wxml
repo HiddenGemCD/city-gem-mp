@@ -11,8 +11,8 @@
    <view class="first-line">
    <picker bindchange="bindPickerCategoryChange" value="{{categoryIndex}}" range="{{categories}}">
     <view class="category">
-      <view>{{current_category}}</view>
-      <image class="angle-icon"             src='/commons/assets/icons/angle-down.png'></image> 
+      <view>{{current_category? current_category:'Category'}}</view>
+      <image class="angle-icon" src='/commons/assets/icons/angle-down.png'></image> 
     </view>
     </picker>
 
@@ -38,13 +38,10 @@
    </view>
    
   
-
+    <view wx:if='{{noCategoryMessage}}' class='message'>{{noCategoryMessage}}</view>
+    <view wx:if='{{noLocationMessage}}' class='message'>{{noLocationMessage}}</view>
+    <view wx:if='{{noDescriptionMessage}}' class='message'>{{noDescriptionMessage}}</view>
+    <view wx:if='{{noTagMessage}}' class='message'>{{noTagMessage}}</view>
    <button class="submit" hover-class='submit-hover' form-type="submit" >ADD GEM</button>
  </view>
 </form>
-
-
-    <!-- <view class="dropdown-tab-layout" hidden="{{!item.active}}" wx:for="{{tabTxt}}"  wx:for-item="item" data-index="{{index}}" bindtap="filterTabChild">
-        <view class="{{item.type==0?'active':''}}" data-id="0" data-index="0" bindtap="filter">不限</view>
-        <view class="{{item.type==item_child.id?'active':''}}" wx:for="{{item.child}}" wx:for-item="item_child" wx:key="" data-id="{{item_child.id}}" data-index="0" data-txt="{{item_child.text}}" bindtap="filter">{{item_child.text}}</view>
-    </view> -->
