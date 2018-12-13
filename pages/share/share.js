@@ -24,6 +24,7 @@ Page({
     myRequest.get({
       path: "posts/" + page.data.postId,
       success(res) {
+        console.log(res)
         page.setData({
           post: res.data.post,
           city: res.data.city,
