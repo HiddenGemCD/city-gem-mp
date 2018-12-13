@@ -88,7 +88,7 @@
           </view>
         </view>
 
-        <view class="map">
+        <view class="map" bindtap='openMap' data-longitude="{{post.longitude}}" data-latitude="{{post.latitude}}">
         <map wx:if='{{flip[postsIndex] && showMap[postsIndex]}}' id="map" longitude="{{post.longitude}}" latitude="{{post.latitude}}" scale="14" markers="{{markers}}" bindmarkertap="markertap" show-location class="mapspecs"></map>  
         </view>
         <view class="control">
