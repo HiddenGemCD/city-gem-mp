@@ -27,7 +27,7 @@
 
     <view class='desc'>
       <view>
-     <textarea style='width:600rpx;' placeholder="I recommend this because..."  name="description"/>
+     <textarea style='width:600rpx;' placeholder="I recommend this because..."  name="description" maxlength="-1"/>
       </view>
     
     </view>
