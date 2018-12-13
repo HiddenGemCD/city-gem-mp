@@ -10,5 +10,6 @@
   <view style='padding-top:360rpx;'/>
 
   <!-- enter button -->
-  <button class='enter' hover-class='button-hover' bindtap='goNext'>Enter</button>
+  <button class='enter' hover-class='button-hover' bindtap='goNext' >Enter</button>
+  
 </view>
