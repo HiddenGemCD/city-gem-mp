@@ -1,4 +1,4 @@
-<view class='background' style="background-image: url('http://lc-khax1hop.cn-n1.lcfile.com/d4c5ac53e139e5088d61.png');">
+<view class='background' style="background-image: url('/commons/assets/icons/landing.png');">
   <view style='padding-top:70rpx;'/>
 
   <!-- logo -->
