@@ -51,7 +51,8 @@
 <!-- if friend delete the card -->
 <view wx:if='{{cardDeleted}}' class='message-container'>
   <view  class='message'>
-    Your friend not reccomend this place anymore!
+    Sorry, your friend no longer recommends this place!
   </view>
 </view>
+  <view class='btn-description'>Don't give up yet!</view>
 <button class='btn btn-enter' hover-class='button-hover' bindtap='goToLanding'>Discover More</button>
