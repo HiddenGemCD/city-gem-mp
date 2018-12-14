@@ -3,10 +3,8 @@ body,html {
 }
 
 .background {
-  height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  position: absolute;
+  z-index: -1
 }
 
 .logo {

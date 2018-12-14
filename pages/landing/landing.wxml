@@ -1,6 +1,7 @@
-<view class='background' style="background-image: url('/commons/assets/icons/landing.png');">
-  <view style='padding-top:70rpx;'/>
+<view>
 
+  <image style='width: 100%;height: 100vh' class='background' src='/commons/assets/icons/landing.png'></image>
+  <view style='padding-top:70rpx;'/>
   <!-- logo -->
   <image src='/commons/assets/icons/logo.png' class='logo'></image>
 
