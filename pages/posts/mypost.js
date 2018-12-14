@@ -54,7 +54,7 @@ Page({
           city_qty: res.data.city_qty,
           cities: res.data.cities
         })
-
+        console.log("data set")
         if (page.data.post_qty == 0) {
           console.log("no cards")
           page.setData({
