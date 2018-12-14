@@ -34,13 +34,14 @@
 </view>
 
 <!-- No card -->
-<view wx:if='{{noCards}}' class='no-post'>
-You have no cards...</view> 
+<view wx:if='{{noCards}}' class="no-post {{noCards? 'message':''}}">
+You have no cards...
+</view> 
 
   <view style='padding-top:70rpx;'/>
 
 
-<view wx:if='{{posts.length == 0}}' class='no-post'>
+<view wx:if='{{posts.length == 0}}' class="no-post {{noCards? 'message':''}}">
 Click below to add a card!</view> 
 
 <!-- No card -->

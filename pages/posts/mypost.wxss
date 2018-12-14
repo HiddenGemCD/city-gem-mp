@@ -62,9 +62,13 @@
 .no-post {
   display: flex;
   justify-content: center;
-  color: #FF2965;
+  /* color: #FF2965; */
   font-size: 20px;
-  transition-delay: 1s;
+  color: white;
+}
+
+.no-post.message {
+  color: #FF2965;
 }
 
 .post {
@@ -259,4 +263,3 @@ button::after{ border: none; }
   width: 20px;
   height: 20px;
 }
-
