@@ -17,8 +17,6 @@ Page({
   },
 
   onLoad: function (options) {
-    console.log(this.data)
-
     if (this.data.canIUse == false) {
       console.log('please authorize...')
       wx.openSetting({
@@ -29,10 +27,7 @@ Page({
           }
         }
       })
-    } else {
-      console.log('OK')
     }
-
     wx.setNavigationBarColor({
       frontColor: '#000000',
       backgroundColor: '#fff2e7',
@@ -51,6 +46,10 @@ Page({
     })
   },
 
+  bindGetUserInfo: function (e) {
+    console.log(e.detail.userInfo)
+  },
+
   updateUserInfo: function() {
     // const host = 'http://localhost:3000/';
     const host = 'https://citygem.wogengapp.cn/';
@@ -63,6 +62,7 @@ Page({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称
           wx.getUserInfo({
             success: function (res) {
+              console.log(999, res)
               wx.request({
                 url: host + 'api/v1/update_user_info', method: 'post', data: {
                   id: app.globalData.userId.id,
