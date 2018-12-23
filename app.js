@@ -8,6 +8,8 @@ App({
   onLaunch: function () {
     // const host = 'http://localhost:3000/';
     const host = 'https://citygem.wogengapp.cn/';
+    // const host = 'http://citygem.chiwei.fun/';
+
     console.log('processing to login');
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -28,6 +30,15 @@ App({
             this.globalData.userId = res.data.userId
           }
         })
+      }
+    })
+
+    wx.openSetting({
+      success: (res) => {
+        res.authSetting = {
+        "scope.userInfo": true,
+        "scope.userLocation": true
+        }
       }
     })
     // 获取用户信息

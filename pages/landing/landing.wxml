@@ -12,7 +12,7 @@
 
   <view style='position:fixed; bottom:60rpx;'>
       <view style='width:100vw;'>
-           <button style='margin-left:auto; margin-right:auto;' class='enter' hover-class='button-hover' bindtap='goNext'>Enter</button>    
+           <button style='margin-left:auto; margin-right:auto;' class='enter' hover-class='button-hover' open-type="getUserInfo" bindtap='goNext'>Enter</button>    
       </view>
   </view>
 </view>

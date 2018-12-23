@@ -1,5 +1,11 @@
 const app = getApp()
 const myRequest = require('../../lib/api/request');
+const QQMapWX = require('../../qqmap-wx-jssdk1.0/qqmap-wx-jssdk.js');
+const qqmap = new QQMapWX({
+  key: 'FF7BZ-WGR34-2YSUE-D2L6W-PNY6F-PQFWL'
+});
+
+
 
 Page({
   data: {
@@ -27,23 +33,40 @@ Page({
     if (page.data.validate) {
       console.log('validate ok')
       // Post new card to API
-      myRequest.post({
-        path: 'users/' + app.globalData.userId.id + '/posts',
-        data: {
-          post: {
-            name: page.data.name,
-            description: e.detail.value.description,
-            address: page.data.address,
-            latitude: page.data.latitude,
-            longitude: page.data.longitude,
-            category: page.data.current_category,
-            tagstring: e.detail.value.tagstring
-          }
+      qqmap.reverseGeocoder({
+        location: {
+          latitude: page.data.latitude,
+          longitude: page.data.longitude
         },
-        success(res) {
-          console.log(res)
+        success: function (res) {
+          console.log(res.result.ad_info.city);
+          let current_city = res.result.ad_info.city;
+          page.setData({
+            current_city: current_city
+          })
+          console.log(444, page.data.current_city)
+
+          myRequest.post({
+            path: 'users/' + app.globalData.userId.id + '/posts' + '?city=' + page.data.current_city,
+            data: {
+              post: {
+                name: page.data.name,
+                description: e.detail.value.description,
+                address: page.data.address,
+                latitude: page.data.latitude,
+                longitude: page.data.longitude,
+                category: page.data.current_category,
+                tagstring: e.detail.value.tagstring
+              }
+            },
+            success(res) {
+              console.log(res)
+            }
+          })
         }
       })
+      
+
 
       setTimeout(function () {
         wx.reLaunch({

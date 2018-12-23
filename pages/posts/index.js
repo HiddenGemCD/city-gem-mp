@@ -17,8 +17,10 @@ Page({
   onLoad: function () {
     let page = this
 // get and set current user's location and use qqmap api to get current city
+
     wx.getLocation({
       success: function(res) {
+        console.log(3333,res)
         let latitude = res.latitude
         let longitude = res.longitude
 
@@ -30,6 +32,7 @@ Page({
           success: function (res) {
             console.log(res.result.ad_info.city);
             let current_city = res.result.ad_info.city;
+            console.log(current_city)
 
 // convert city name to english
             myRequest.get({
