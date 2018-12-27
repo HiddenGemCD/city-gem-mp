@@ -17,7 +17,7 @@ Page({
   onLoad: function () {
     let page = this
 // get and set current user's location and use qqmap api to get current city
-
+    // "latitude"=> 51.345196, "longitude"=> 12.381117,
     wx.getLocation({
       success: function(res) {
         console.log(3333,res)
