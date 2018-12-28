@@ -2,7 +2,8 @@
 App({
 
   globalData: {
-    userInfo: null
+    userInfo: null,
+    current_city: ""
   },
 
   onLaunch: function () {

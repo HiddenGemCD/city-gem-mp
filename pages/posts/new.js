@@ -1,10 +1,9 @@
 const app = getApp()
 const myRequest = require('../../lib/api/request');
-const QQMapWX = require('../../qqmap-wx-jssdk1.0/qqmap-wx-jssdk.js');
-const qqmap = new QQMapWX({
-  key: 'FF7BZ-WGR34-2YSUE-D2L6W-PNY6F-PQFWL'
-});
-
+// const QQMapWX = require('../../qqmap-wx-jssdk1.0/qqmap-wx-jssdk.js');
+// const qqmap = new QQMapWX({
+//   key: 'FF7BZ-WGR34-2YSUE-D2L6W-PNY6F-PQFWL'
+// });
 
 
 Page({
@@ -14,7 +13,8 @@ Page({
     name: 'Select Location',
     array: ['Eat', 'Drink', 'Play'],
     index: 0,
-    validate: false
+    validate: false,
+    current_city: ""
   },
 
   onLoad: function () {
@@ -29,44 +29,57 @@ Page({
     let data = e
 
     this.validate(data);
+
     console.log(page.data)
     if (page.data.validate) {
       console.log('validate ok')
-      // Post new card to API
-      qqmap.reverseGeocoder({
-        location: {
-          latitude: page.data.latitude,
-          longitude: page.data.longitude
+
+      let latitude = page.data.latitude
+      let longitude = page.data.longitude
+      // let latitude = 51.345196
+      // let longitude = 12.381117
+
+      wx.request({
+        url: "http://api.map.baidu.com/geocoder/v2/?location=" + latitude + "," + longitude + "&output=json&pois=1&ak=difEM6gfs3VC8dYVEjFhgHQADgl4AIyU",
+        data: {},
+        header: {
+          'Content-Type': 'application/json'
         },
         success: function (res) {
-          console.log(res.result.ad_info.city);
-          let current_city = res.result.ad_info.city;
-          page.setData({
-            current_city: current_city
-          })
-          console.log(444, page.data.current_city)
+          console.log('baidu', res.data.result.addressComponent.city);
 
-          myRequest.post({
-            path: 'users/' + app.globalData.userId.id + '/posts' + '?city=' + page.data.current_city,
-            data: {
-              post: {
-                name: page.data.name,
-                description: e.detail.value.description,
-                address: page.data.address,
-                latitude: page.data.latitude,
-                longitude: page.data.longitude,
-                category: page.data.current_category,
-                tagstring: e.detail.value.tagstring
-              }
-            },
+          let current_city = res.data.result.addressComponent.city;
+
+          myRequest.get({
+            path: "get_current_city?current_city=" + current_city,
             success(res) {
-              console.log(res)
+
+              page.setData({
+                current_city: res.data.current_city,
+              })
+              console.log("new post city", page.data.current_city)
+
+              myRequest.post({
+                path: 'users/' + app.globalData.userId.id + '/posts' + '?city=' + page.data.current_city,
+                data: {
+                  post: {
+                    name: page.data.name,
+                    description: e.detail.value.description,
+                    address: page.data.address,
+                    latitude: page.data.latitude,
+                    longitude: page.data.longitude,
+                    category: page.data.current_category,
+                    tagstring: e.detail.value.tagstring
+                  }
+                },
+                success(res) {
+                  console.log(res)
+                }
+              })
             }
           })
         }
       })
-      
-
 
       setTimeout(function () {
         wx.reLaunch({
