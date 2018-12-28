@@ -164,3 +164,15 @@
   margin-left: 22px;
   margin-bottom: 20px;
 }
+
+.message-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50rpx;
+}
+
+.message {
+  color: #FF2965;
+  text-align: center;
+}

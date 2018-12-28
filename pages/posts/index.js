@@ -53,8 +53,6 @@ Page({
                 console.log('now current city...')
                 console.log(page.data.current_city)
                 console.log(page.data)
-
-                //get all posts, city list, trending data
                 myRequest.get({
                   path: "posts",
                   success(res) {
@@ -65,15 +63,21 @@ Page({
                       trending_counts: res.data.trending_counts
                     })
                     // filter posts based on current location
+                    console.log(page.data)
                     page.filtered()
+                    
                   }
                 })  
+
               },
               fail: function () {
                 // fail
               },
               complete: function () {
                 // complete
+                //get all posts, city list, trending data
+
+
               }
             })
           }
@@ -88,7 +92,10 @@ Page({
 
     let page = this
     let category = page.data.current_category
-    let city = app.globalData.current_city
+    let city = page.data.current_city
+
+    console.log("category", category)
+    console.log("city", city)
 
     myRequest.get({
       path: "posts?category=" + category + '&city=' + city,
@@ -99,6 +106,7 @@ Page({
         })
       }
     })
+    console.log("filter",page.data)
   },
 
 // select catgory and filter

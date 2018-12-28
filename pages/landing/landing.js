@@ -51,8 +51,8 @@ Page({
   },
 
   updateUserInfo: function() {
-    const host = 'http://localhost:3000/';
-    // const host = 'https://citygem.wogengapp.cn/';
+    // const host = 'http://localhost:3000/';
+    const host = 'https://citygem.wogengapp.cn/';
     // const host = 'http://citygem.chiwei.fun/';
     console.log('update user info')
     wx.getSetting({
