@@ -27,6 +27,11 @@
 
 <view style='padding-top:40rpx;'/>
 
+<!-- message -->
+
+<view wx:if="{{posts.length == 0}}" class ="message-box">
+  <text class="message">Please add gems for your city!</text>
+</view>
 
 <!-- post  -->
 <block wx:for="{{posts}}" wx:for-item="post" wx:for-index="postsIndex" wx:key="posts">
